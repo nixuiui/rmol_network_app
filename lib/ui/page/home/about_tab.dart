@@ -105,13 +105,16 @@ class _AboutTabState extends State<AboutTab> {
                             title: Text("Ketentuan Kontributor", style: TextStyle(
                               color: Colors.black87,
                               fontWeight: FontWeight.w600
+                            ))
+                          ),
+                          Divider(),
+                          ListTile(
+                            leading: Icon(Feather.globe, color: Color(0xff15afff)),
+                            title: Text("Kunjungi Website", style: TextStyle(
+                              color: Colors.black87,
+                              fontWeight: FontWeight.w600
                             )),
-                            // onTap: () => Navigator.push(context,
-                            //   MaterialPageRoute(builder: (context) => InfoPage(
-                            //     title: "Ketentuan Kontributor",
-                            //     data: AboutUnpaders.conntributorRequirement
-                            //   )),
-                            // ),
+                            onTap: () => _launchURL("https://www.rmoljatim.id/"),
                           ),
                           Divider(),
                           Container(

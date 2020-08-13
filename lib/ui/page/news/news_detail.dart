@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:esys_flutter_share/esys_flutter_share.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -135,7 +133,7 @@ class _NewsDetailState extends State<NewsDetail> {
                     IconButton(
                       padding: EdgeInsets.symmetric(vertical: 16),
                       icon: Icon(Ionicons.md_share, size: 20, color: Colors.black87),
-                      onPressed: () async => await sharePost()
+                      onPressed: () => sharePost()
                     ),
                     IconButton(
                       padding: EdgeInsets.symmetric(vertical: 16),
@@ -322,13 +320,10 @@ class _NewsDetailState extends State<NewsDetail> {
     }
   }
 
-  Future<void> sharePost() async {
-    var request = await HttpClient().getUrl(Uri.parse(widget.news.content.imageUrl));
-    var response = await request.close();
-    var bytes = await consolidateHttpClientResponseBytes(response);
+  sharePost() {
     var desc = widget.news.content.title + "\n\n";
-    desc += widget.news.content.titleSlug;
-    await Share.file('ESYS AMLOG', 'amlog.jpg', bytes, 'image/jpg', text:  desc);
+    desc += widget.news.content.postUrl;
+    Share.text('Bagikan Berita', desc, 'text/plain');
   }
 
   favoriteClicked() {
