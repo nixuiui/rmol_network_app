@@ -26,12 +26,22 @@ class NewsCategoryTab extends StatefulWidget {
 }
 
 class _NewsCategoryTabState extends State<NewsCategoryTab> {
+
+  int initialIndex = 0;
+
+  @override
+  void initState() {
+    initialIndex = widget.categories.indexWhere((item) => item.id == widget.categorySelected.id);
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Stack(
       children: <Widget>[
         DefaultTabController(
           length: widget.categories.length,
+          initialIndex: initialIndex,
           child: Scaffold(
             appBar: AppBar(
               title: Text("RUBRIK"),
