@@ -315,7 +315,6 @@ class _NewsDetailState extends State<NewsDetail> {
   }
 
   _launchURL(String url) async {
-    print(url);
     if (await canLaunch(url)) {
       await launch(url);
     } else {

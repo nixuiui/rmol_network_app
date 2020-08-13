@@ -80,9 +80,11 @@ class NewsBloc extends Bloc<NewsEvent, NewsState> {
         if(pref != null) {
           yield CategoriesLoaded(data: categoryFromJson(pref));
         }
-        final response = await api.loadCategories();
-        prefs.setString("categories", categoryToJson(response));
-        yield CategoriesLoaded(data: response);
+        if(event.refresh || pref == null) {
+          final response = await api.loadCategories();
+          prefs.setString("categories", categoryToJson(response));
+          yield CategoriesLoaded(data: response);
+        }
       } catch (error) {
         print("ERROR: $error");
         yield NewsFailure(error: error.toString());

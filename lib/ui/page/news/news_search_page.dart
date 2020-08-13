@@ -185,7 +185,6 @@ class NewsSearchPageState extends State<NewsSearchPage> {
     final maxScroll = _scrollController.position.maxScrollExtent;
     final currentScroll = _scrollController.position.pixels;
     if (maxScroll - currentScroll <= _scrollThreshold && !hasReachedMax && !isLoadMore) {
-      print("SCROLL");
       if(!isRefreshing) {
         bloc.add(LoadNews(
           isLoadMore: true,

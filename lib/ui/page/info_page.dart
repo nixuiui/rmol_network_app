@@ -88,7 +88,6 @@ class _InfoPageState extends State<InfoPage> {
   }
 
   _launchURL(String url) async {
-    print(url);
     if (await canLaunch(url)) {
       await launch(url);
     } else {

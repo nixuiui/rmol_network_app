@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:rmol_network_app/core/models/category_model.dart';
 import 'package:rmol_network_app/helper/app_general_widget.dart';
-import 'package:rmol_network_app/ui/page/news/news_list_page.dart';
+import 'package:rmol_network_app/ui/page/news/news_category_tab.dart';
 import 'package:rmol_network_app/ui/widget/box.dart';
 
 class CategoryTab extends StatefulWidget {
@@ -41,10 +41,9 @@ class _CategoryTabState extends State<CategoryTab> {
           itemBuilder: (context, index) => Box(
             onPressed: () => Navigator.push(
               context,
-              MaterialPageRoute(builder: (context) => NewsListPage(
-                title: widget.categories[index].name ?? "",
-                type: "category",
-                cat: widget.categories[index].nameSlug ?? "",
+              MaterialPageRoute(builder: (context) => NewsCategoryTab(
+                categories: widget.categories,
+                categorySelected: widget.categories[index],
               )),
             ),
             padding: 16,

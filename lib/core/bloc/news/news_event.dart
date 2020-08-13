@@ -10,7 +10,16 @@ abstract class NewsEvent extends Equatable {
 
 class LoadHomeNews extends NewsEvent {}
 
-class LoadCategories extends NewsEvent {}
+class LoadCategories extends NewsEvent {
+  final bool refresh;
+
+  const LoadCategories({
+    this.refresh = false
+  });
+
+  @override
+  List<Object> get props => [refresh];
+}
 
 class LoadIndonesianNews extends NewsEvent {}
 

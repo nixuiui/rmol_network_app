@@ -50,8 +50,6 @@ class _HomeTabState extends State<HomeTab> {
 
   @override
   Widget build(BuildContext context) {
-    print("widget.isLoadMore");
-    print(widget.isLoadMore);
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(

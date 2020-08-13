@@ -13,8 +13,6 @@ class NewsApi extends MainApi {
     int perPage = 10
   }) async {
     try {
-      print("type");
-      print(type);
       var response;
       if(type == "news") {
         response = getRequest(url: "$host/news?page=$page&per_page=$perPage");

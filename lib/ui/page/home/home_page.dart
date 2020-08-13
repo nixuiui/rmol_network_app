@@ -98,7 +98,7 @@ class _HomePageState extends State<HomePage> {
     setState(() {
       _layoutPage[1] = setCategoryTab();
     });
-    categoryBloc.add(LoadCategories());
+    categoryBloc.add(LoadCategories(refresh: true));
   }
   
   @override
@@ -188,7 +188,6 @@ class _HomePageState extends State<HomePage> {
     final maxScroll = scrollController.position.maxScrollExtent;
     final currentScroll = scrollController.position.pixels;
     if (maxScroll - currentScroll <= _scrollThreshold && !hasReachedMax && !isLoadMore) {
-      print("DAS");
       if(!homeStarting) {
         newsBloc.add(LoadNews(isLoadMore: true));
       }
