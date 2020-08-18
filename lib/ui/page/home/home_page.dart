@@ -4,6 +4,7 @@ import 'package:flutter_icons/flutter_icons.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:rmol_network_app/core/bloc/general/general_bloc.dart';
 import 'package:rmol_network_app/core/bloc/general/general_event.dart';
+import 'package:rmol_network_app/core/bloc/general/general_state.dart';
 import 'package:rmol_network_app/core/bloc/news/news_bloc.dart';
 import 'package:rmol_network_app/core/bloc/news/news_event.dart';
 import 'package:rmol_network_app/core/bloc/news/news_state.dart';
@@ -57,7 +58,7 @@ class _HomePageState extends State<HomePage> {
     ];
     refreshHome();
     refreshCategory();
-    generalBloc.add(LoadGeneralInfo());
+    generalBloc.add(CheckUpdate());
     super.initState();
   }
 
@@ -146,6 +147,13 @@ class _HomePageState extends State<HomePage> {
                 latePosts = state.data;
                 _layoutPage[0] = setHomeTab();
               });
+            }
+          }
+        ),
+        BlocListener(
+          bloc: generalBloc,
+          listener: (context, state) async {
+            if(state is GeneralInfoLoaded) {
             }
           }
         )

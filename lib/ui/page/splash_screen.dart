@@ -21,8 +21,10 @@ class _SplashScreenState extends State<SplashScreen> {
 
   _getAppInfo() async {
     packageInfo = await PackageInfo.fromPlatform();
-    version = packageInfo.version;
-    startSplashScreen();
+    setState(() {
+      version = packageInfo.version;
+      startSplashScreen();
+    });
   }
 
   @override
