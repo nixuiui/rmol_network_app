@@ -17,15 +17,17 @@ class HomeNewsLoaded extends NewsState {
   final IndonesianNewsResponse indoNews;
   final List<NewsModel> footnotes;
   final List<NewsModel> opini;
+  final List<NewsModel> webtorial;
 
   const HomeNewsLoaded({
     @required this.indoNews,
     @required this.footnotes,
-    @required this.opini
+    @required this.opini,
+    @required this.webtorial
   });
 
   @override
-  List<Object> get props => [indoNews, footnotes, opini];
+  List<Object> get props => [indoNews, footnotes, opini, webtorial];
 }
 
 class CategoriesLoaded extends NewsState {

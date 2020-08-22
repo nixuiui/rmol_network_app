@@ -165,7 +165,7 @@ class NewsHorizontalItem extends StatelessWidget {
             Wrap(
               crossAxisAlignment: WrapCrossAlignment.center,
               children: <Widget>[
-                Text("Kategori", 
+                Text(news.content.categoryName, 
                   style: TextStyle(
                     fontSize: 10,
                     color: Colors.black38,

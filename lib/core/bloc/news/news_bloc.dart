@@ -62,10 +62,12 @@ class NewsBloc extends Bloc<NewsEvent, NewsState> {
         final indoNews = api.loadIndonesianNews();
         final footnotes = api.loadNews(type: "category", cat: 'Footnote', page: 1, perPage: 5);
         final opini = api.loadNews(type: "category", cat: 'Opini', page: 1, perPage: 5);
+        final webtorial = api.loadNews(type: "category", cat: 'webtorial', page: 1, perPage: 5);
         yield HomeNewsLoaded(
           indoNews: await indoNews,
           footnotes: await footnotes,
-          opini: await opini
+          opini: await opini,
+          webtorial: await webtorial
         );
       } catch (error) {
         print("ERROR: $error");

@@ -8,6 +8,7 @@ import 'package:rmol_network_app/core/bloc/general/general_state.dart';
 import 'package:rmol_network_app/core/bloc/news/news_bloc.dart';
 import 'package:rmol_network_app/core/bloc/news/news_event.dart';
 import 'package:rmol_network_app/core/bloc/news/news_state.dart';
+import 'package:rmol_network_app/core/models/ads_model.dart';
 import 'package:rmol_network_app/core/models/category_model.dart';
 import 'package:rmol_network_app/core/models/news_model.dart';
 import 'package:rmol_network_app/ui/page/home/about_tab.dart';
@@ -36,6 +37,7 @@ class _HomePageState extends State<HomePage> {
   List<NewsModel> latePosts = [];
   List<NewsModel> footnotes = [];
   List<NewsModel> opinies = [];
+  List<NewsModel> webtorials = [];
   bool  homeStarting = true, 
         isLoadMore = false,
         hasReachedMax = false;
@@ -46,6 +48,9 @@ class _HomePageState extends State<HomePage> {
   final categoryBloc = NewsBloc();
   List<Category> categories = [];
   bool categoryStarting = true;
+  
+  final adsBloc = GeneralBloc();
+  AdsItem ads;
 
   @override
   void initState() {
@@ -82,8 +87,10 @@ class _HomePageState extends State<HomePage> {
       latePosts: latePosts,
       footnotes: footnotes,
       opinies: opinies,
+      webtorials: webtorials,
       isLoadMore: isLoadMore,
-      hasReachedMax: hasReachedMax
+      hasReachedMax: hasReachedMax,
+      ads: ads
     );
   }
 
@@ -91,6 +98,7 @@ class _HomePageState extends State<HomePage> {
     setState(() {
       _layoutPage[0] = setHomeTab();
     });
+    adsBloc.add(LoadAds());
     newsBloc.add(LoadNews(isRefresh: true));
     homeBloc.add(LoadHomeNews());
   }
@@ -117,6 +125,7 @@ class _HomePageState extends State<HomePage> {
                 popularPosts = state.indoNews.popularweek;
                 footnotes = state.footnotes;
                 opinies = state.opini;
+                webtorials = state.webtorial;
                 _layoutPage[0] = setHomeTab();
               });
             }
@@ -154,6 +163,14 @@ class _HomePageState extends State<HomePage> {
           bloc: generalBloc,
           listener: (context, state) async {
             if(state is GeneralInfoLoaded) {
+            }
+          }
+        ),
+        BlocListener(
+          bloc: adsBloc,
+          listener: (context, state) async {
+            if(state is AdsLoaded) {
+              setState(() => ads = state.data);
             }
           }
         )

@@ -1,5 +1,6 @@
 import 'package:equatable/equatable.dart';
 import 'package:flutter/material.dart';
+import 'package:rmol_network_app/core/models/ads_model.dart';
 import 'package:rmol_network_app/core/models/general_info.dart';
 import 'package:rmol_network_app/core/models/page_model.dart';
 
@@ -35,6 +36,15 @@ class PageLoaded extends GeneralState {
   final PageModel data;
 
   const PageLoaded({@required this.data});
+
+  @override
+  List<Object> get props => [data];
+}
+
+class AdsLoaded extends GeneralState {
+  final AdsItem data;
+
+  const AdsLoaded({@required this.data});
 
   @override
   List<Object> get props => [data];

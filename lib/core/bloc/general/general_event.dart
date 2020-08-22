@@ -9,6 +9,8 @@ abstract class GeneralEvent extends Equatable {
 
 class LoadGeneralInfo extends GeneralEvent {}
 
+class LoadAds extends GeneralEvent {}
+
 class CheckUpdate extends GeneralEvent {}
 
 class LoadPage extends GeneralEvent {

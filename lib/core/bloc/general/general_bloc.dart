@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:math';
 import 'package:bloc/bloc.dart';
 import 'package:package_info/package_info.dart';
 import 'package:rmol_network_app/core/api/general_api.dart';
@@ -58,6 +59,22 @@ class GeneralBloc extends Bloc<GeneralEvent, GeneralState> {
         final response = await api.loadGeneralInfo();
         prefs.setInt("version_code", response.androidVersionCode);
         yield GeneralInfoLoaded(data: response);
+      } catch (error) {
+        print("ERROR: $error");
+        yield GeneralFailure(error: error.toString());
+      }
+    }
+    
+    if (event is LoadAds) {
+      try {
+        yield GeneralLoading();
+        final response = await api.loadAds();
+        var random = Random().nextInt(3);
+        var ads = response.adsone;
+        if(random == 1) ads = response.adsone;
+        else if(random == 2) ads = response.adstwo;
+        else if(random == 3) ads = response.adsthree;
+        yield AdsLoaded(data: ads);
       } catch (error) {
         print("ERROR: $error");
         yield GeneralFailure(error: error.toString());

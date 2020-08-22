@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_icons/flutter_icons.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
+import 'package:rmol_network_app/core/models/ads_model.dart';
 import 'package:rmol_network_app/core/models/news_model.dart';
 import 'package:rmol_network_app/helper/app_general_widget.dart';
 import 'package:rmol_network_app/ui/page/news/news_detail.dart';
@@ -8,6 +9,7 @@ import 'package:rmol_network_app/ui/page/news/news_search_page.dart';
 import 'package:rmol_network_app/ui/page/news/webview_page.dart';
 import 'package:rmol_network_app/ui/widget/header_for_list.dart';
 import 'package:rmol_network_app/ui/widget/news_item.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class HomeTab extends StatefulWidget {
   const HomeTab({
@@ -20,9 +22,11 @@ class HomeTab extends StatefulWidget {
     this.popularPosts,
     this.footnotes,
     this.opinies,
+    this.webtorials,
     this.isStarting,
     this.isLoadMore,
-    this.hasReachedMax
+    this.hasReachedMax,
+    this.ads,
   }) : super(key: key);
 
   final VoidCallback onRefresh;
@@ -33,9 +37,11 @@ class HomeTab extends StatefulWidget {
   final List<NewsModel> latePosts;
   final List<NewsModel> footnotes;
   final List<NewsModel> opinies;
+  final List<NewsModel> webtorials;
   final bool isStarting;
   final bool isLoadMore;
   final bool hasReachedMax;
+  final AdsItem ads;
 
   @override
   _HomeTabState createState() => _HomeTabState();
@@ -46,6 +52,14 @@ class _HomeTabState extends State<HomeTab> {
   @override
   void initState() {
     super.initState();
+  }
+
+  _launchURL(String url) async {
+    if (await canLaunch(url)) {
+      await launch(url);
+    } else {
+      throw 'Could not launch $url';
+    }
   }
 
   @override
@@ -90,6 +104,10 @@ class _HomeTabState extends State<HomeTab> {
                 ) : ShimmerNewsHorizontalItem()
               ),
             ),
+            widget.ads?.img != null ? GestureDetector(
+              onTap: () => _launchURL(widget.ads?.link),
+              child: Image.network(widget.ads?.img)
+            ) : Container(),
             HeaderForListWidget(title: "Indonesia Terkini", page: null),
             ListView.separated(
               shrinkWrap: true,
@@ -157,6 +175,25 @@ class _HomeTabState extends State<HomeTab> {
                   onClick: () => Navigator.push(
                     context,
                     MaterialPageRoute(builder: (context) => NewsDetail(news: widget.opinies[index])),
+                  ),
+                ) : ShimmerNewsHorizontalItem()
+              ),
+            ),
+            HeaderForListWidget(title: "Webtorial", page: null),
+            Container(
+              height: 235,
+              child: ListView.separated(
+                shrinkWrap: true,
+                physics: ClampingScrollPhysics(),
+                padding: EdgeInsets.all(16),
+                scrollDirection: Axis.horizontal,
+                separatorBuilder: (context, index) => SizedBox(width: 16),
+                itemCount: widget.isStarting ? 4 : widget.webtorials.length,
+                itemBuilder: (context, index) => !widget.isStarting ? NewsHorizontalItem(
+                  news: widget.webtorials[index],
+                  onClick: () => Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => NewsDetail(news: widget.webtorials[index])),
                   ),
                 ) : ShimmerNewsHorizontalItem()
               ),
