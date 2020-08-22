@@ -7,9 +7,13 @@ import 'package:flutter_html/style.dart';
 import 'package:flutter_icons/flutter_icons.dart';
 import 'package:intl/date_symbol_data_local.dart';
 import 'package:intl/intl.dart';
+import 'package:rmol_network_app/core/bloc/general/general_bloc.dart';
+import 'package:rmol_network_app/core/bloc/general/general_event.dart';
+import 'package:rmol_network_app/core/bloc/general/general_state.dart';
 import 'package:rmol_network_app/core/bloc/news/news_bloc.dart';
 import 'package:rmol_network_app/core/bloc/news/news_event.dart';
 import 'package:rmol_network_app/core/bloc/news/news_state.dart';
+import 'package:rmol_network_app/core/models/ads_model.dart';
 import 'package:rmol_network_app/core/models/news_model.dart';
 import 'package:rmol_network_app/helper/app_general_widget.dart';
 import 'package:rmol_network_app/ui/page/news/news_list_page.dart';
@@ -39,8 +43,12 @@ class _NewsDetailState extends State<NewsDetail> {
   bool isFavorite = false;
   bool isStarting = true;
 
+  final adsBloc = GeneralBloc();
+  AdsItem ads;
+
   @override
   void initState() {
+    adsBloc.add(LoadAds());
     initializeDateFormatting();
     formatDate = DateFormat.yMMMMEEEEd("id").add_Hm();
     bloc.add(LoadNews(type: "news", perPage: 5, page: 1));
@@ -75,6 +83,14 @@ class _NewsDetailState extends State<NewsDetail> {
                   }
                 }
               });
+            }
+          }
+        ),
+        BlocListener(
+          bloc: adsBloc,
+          listener: (context, state) async {
+            if(state is AdsLoaded) {
+              setState(() => ads = state.data);
             }
           }
         )
@@ -281,7 +297,11 @@ class _NewsDetailState extends State<NewsDetail> {
                                 );
                               }).toList(),
                             ),
-                          )
+                          ),
+                          ads?.img != null ? GestureDetector(
+                            onTap: () => _launchURL(ads?.link),
+                            child: Image.network(ads?.img)
+                          ) : Container(),
                         ],
                       ),
                     ),
