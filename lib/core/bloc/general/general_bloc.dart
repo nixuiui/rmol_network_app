@@ -49,14 +49,8 @@ class GeneralBloc extends Bloc<GeneralEvent, GeneralState> {
       try {
         PackageInfo package = await PackageInfo.fromPlatform();
         yield GeneralLoading();
-        var versionCode = prefs.getInt("version_code");
-        if(versionCode != null) {
-          if(int.parse(package.buildNumber) <= versionCode)
-          yield UpdateCheckingResult(isNeedUpdate: true);
-        }
         final response = await api.loadGeneralInfo();
-        prefs.setInt("version_code", response.androidVersionCode);
-        yield GeneralInfoLoaded(data: response);
+        yield UpdateCheckingResult(isNeedUpdate: int.parse(package.buildNumber) < response.androidVersionCode);
       } catch (error) {
         print("ERROR: $error");
         yield GeneralFailure(error: error.toString());

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_icons/flutter_icons.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:rmol_network_app/core/bloc/general/general_bloc.dart';
 import 'package:rmol_network_app/core/bloc/general/general_event.dart';
@@ -164,7 +165,47 @@ class _HomePageState extends State<HomePage> {
         BlocListener(
           cubit: generalBloc,
           listener: (context, state) async {
-            if(state is GeneralInfoLoaded) {
+            if(state is UpdateCheckingResult) {
+              if(state.isNeedUpdate) showDialog(
+                context: context,
+                builder: (BuildContext context) {
+                  return Dialog(
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(8)
+                    ),
+                    child: Container(
+                      height: 270,
+                      padding: EdgeInsets.all(16.0),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          SvgPicture.asset("assets/upgrade.svg", width: 130),
+                          Text(
+                            "Aplikasi RMOL JATIM Telah Update di Playstore!!",
+                            textAlign: TextAlign.center,
+                          ),
+                          Container(
+                            width: MediaQuery.of(context).size.width,
+                            child: RaisedButton(
+                              onPressed: (){},
+                              color: Colors.red,
+                              elevation: 0,
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(8),
+                                side: BorderSide(color: Colors.transparent, width: 0),
+                              ),
+                              disabledElevation: 0,
+                              padding: EdgeInsets.all(12),
+                              child: Text("Update Sekarang", style: TextStyle(color: Colors.white)),
+                            ),
+                          )
+                        ],
+                      ),
+                    ),
+                  );
+                }
+              );
             }
           }
         ),

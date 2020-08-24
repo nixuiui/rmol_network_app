@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:rmol_network_app/helper/simple_bloc_delegate.dart';
 import 'package:rmol_network_app/ui/page/home/home_page.dart';
 import 'package:rmol_network_app/ui/page/splash_screen.dart';
 import 'package:timeago/timeago.dart' as Timeago;
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  Bloc.observer = SimpleBlocDelegate();
   Timeago.setLocaleMessages("id", Timeago.IdMessages());
   runApp(MyApp());
 }
