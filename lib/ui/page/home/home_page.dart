@@ -121,11 +121,13 @@ class _HomePageState extends State<HomePage> {
               homeRefreshController.refreshCompleted();
               setState(() {
                 homeStarting = false;
-                indonesianNewsList = state.indoNews.indoNews;
-                popularPosts = state.indoNews.popularweek;
-                footnotes = state.footnotes;
-                opinies = state.opini;
-                webtorials = state.webtorial;
+                if(state.indoNews != null) {
+                  indonesianNewsList = state.indoNews.indoNews;
+                  popularPosts = state.indoNews.popularweek;
+                }
+                if(state.footnotes != null) footnotes = state.footnotes;
+                if(state.opini != null) opinies = state.opini;
+                if(state.webtorial != null) webtorials = state.webtorial;
                 _layoutPage[0] = setHomeTab();
               });
             }

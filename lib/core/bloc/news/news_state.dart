@@ -20,10 +20,10 @@ class HomeNewsLoaded extends NewsState {
   final List<NewsModel> webtorial;
 
   const HomeNewsLoaded({
-    @required this.indoNews,
-    @required this.footnotes,
-    @required this.opini,
-    @required this.webtorial
+    this.indoNews,
+    this.footnotes,
+    this.opini,
+    this.webtorial
   });
 
   @override

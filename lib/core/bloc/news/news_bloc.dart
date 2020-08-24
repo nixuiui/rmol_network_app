@@ -58,16 +58,32 @@ class NewsBloc extends Bloc<NewsEvent, NewsState> {
     if (event is LoadHomeNews) {
       yield NewsLoading();
       try {
+        var prefIndoNews = prefs.getString("indoNews");
+        if(prefIndoNews != null)
+          yield HomeNewsLoaded(indoNews: indonesianNewsResponseFromJson(prefIndoNews));
+        var prefFootnotes = prefs.getString("footnotes");
+        if(prefFootnotes != null)
+          yield HomeNewsLoaded(footnotes: newsModelFromJson(prefFootnotes));
+        var prefOpinies = prefs.getString("opini");
+        if(prefOpinies != null)
+          yield HomeNewsLoaded(opini: newsModelFromJson(prefOpinies));
+        var prefWebtorials = prefs.getString("webtorial");
+        if(prefWebtorials != null)
+          yield HomeNewsLoaded(webtorial: newsModelFromJson(prefWebtorials));
+
         final indoNews = api.loadIndonesianNews();
         final footnotes = api.loadNews(type: "category", cat: 'Footnote', page: 1, perPage: 5);
         final opini = api.loadNews(type: "category", cat: 'Opini', page: 1, perPage: 5);
         final webtorial = api.loadNews(type: "category", cat: 'webtorial', page: 1, perPage: 5);
-        yield HomeNewsLoaded(
-          indoNews: await indoNews,
-          footnotes: await footnotes,
-          opini: await opini,
-          webtorial: await webtorial
-        );
+        
+        prefs.setString("indoNews", indonesianNewsResponseToJson((await indoNews)));
+        yield HomeNewsLoaded(indoNews: await indoNews);
+        prefs.setString("footnotes", newsModelToJson((await footnotes)));
+        yield HomeNewsLoaded(footnotes: await footnotes);
+        prefs.setString("opini", newsModelToJson((await opini)));
+        yield HomeNewsLoaded(opini: await opini);
+        prefs.setString("webtorial", newsModelToJson((await webtorial)));
+        yield HomeNewsLoaded(webtorial: await webtorial);
       } catch (error) {
         print("ERROR: $error");
         yield NewsFailure(error: error.toString());

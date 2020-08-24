@@ -234,33 +234,36 @@ class _NewsDetailState extends State<NewsDetail> {
                           Text(widget?.news?.content?.summary ?? "", style: TextStyle(
                             fontWeight: FontWeight.w500
                           )),
-                          Html(
-                            shrinkWrap: true,
-                            data: widget?.news?.content?.content ?? "",
-                            onLinkTap: (url) => _launchURL(url),
-                            style: {
-                              "img": Style(
-                                display: Display.INLINE_BLOCK
-                              ),
-                              "p, li, ul, span": Style(
-                                color: Colors.black87,
-                                fontSize: FontSize(16),
-                                fontFamily: 'PTSerif',
-                              ),
-                              "blockquote": Style(
-                                  color: Colors.grey[700],
-                                  fontStyle: FontStyle.italic,
-                                  fontSize: FontSize(24),
-                                  fontFamily: 'PTSerif',
-                                  margin: EdgeInsets.only(left: 0),
-                                  padding: EdgeInsets.only(left: 16),
-                                  border: Border(left: BorderSide(color: Colors.red, width: 3))
-                              ),
-                              "blockquote p": Style(
+                          MediaQuery( 
+                            data: MediaQuery.of(context).copyWith(textScaleFactor: 1),
+                            child: Html(
+                              shrinkWrap: true,
+                              data: widget?.news?.content?.content ?? "",
+                              onLinkTap: (url) => _launchURL(url),
+                              style: {
+                                "img": Style(
+                                  display: Display.INLINE_BLOCK
+                                ),
+                                "p, li, ul, span": Style(
                                   color: Colors.black87,
-                                  fontSize: FontSize(20),
-                              ),
-                            },
+                                  fontSize: FontSize(16),
+                                  fontFamily: 'PTSerif',
+                                ),
+                                "blockquote": Style(
+                                    color: Colors.grey[700],
+                                    fontStyle: FontStyle.italic,
+                                    fontSize: FontSize(24),
+                                    fontFamily: 'PTSerif',
+                                    margin: EdgeInsets.only(left: 0),
+                                    padding: EdgeInsets.only(left: 16),
+                                    border: Border(left: BorderSide(color: Colors.red, width: 3))
+                                ),
+                                "blockquote p": Style(
+                                    color: Colors.black87,
+                                    fontSize: FontSize(20),
+                                ),
+                              },
+                            ),
                           ),
                           Padding(
                             padding: const EdgeInsets.symmetric(vertical: 16),
