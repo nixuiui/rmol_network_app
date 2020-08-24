@@ -50,7 +50,7 @@ class _HomePageState extends State<HomePage> {
   bool categoryStarting = true;
   
   final adsBloc = GeneralBloc();
-  AdsItem ads;
+  AdsModel ads;
 
   @override
   void initState() {
@@ -115,7 +115,7 @@ class _HomePageState extends State<HomePage> {
     return MultiBlocListener(
       listeners: [
         BlocListener(
-          bloc: homeBloc,
+          cubit: homeBloc,
           listener: (context, state) {
             if(state is HomeNewsLoaded) {
               homeRefreshController.refreshCompleted();
@@ -132,7 +132,7 @@ class _HomePageState extends State<HomePage> {
           }
         ),
         BlocListener(
-          bloc: categoryBloc,
+          cubit: categoryBloc,
           listener: (context, state) {
             if(state is CategoriesLoaded) {
               categoryRefreshController.refreshCompleted();
@@ -145,7 +145,7 @@ class _HomePageState extends State<HomePage> {
           }
         ),
         BlocListener(
-          bloc: newsBloc,
+          cubit: newsBloc,
           listener: (context, state) {
             if(state is NewsLoaded) {
               homeRefreshController.refreshCompleted();
@@ -160,14 +160,14 @@ class _HomePageState extends State<HomePage> {
           }
         ),
         BlocListener(
-          bloc: generalBloc,
+          cubit: generalBloc,
           listener: (context, state) async {
             if(state is GeneralInfoLoaded) {
             }
           }
         ),
         BlocListener(
-          bloc: adsBloc,
+          cubit: adsBloc,
           listener: (context, state) async {
             if(state is AdsLoaded) {
               setState(() => ads = state.data);

@@ -37,7 +37,7 @@ class _InfoPageState extends State<InfoPage> {
   @override
   Widget build(BuildContext context) {
     return BlocListener(
-      bloc: bloc,
+      cubit: bloc,
       listener: (context, state) {
         if(state is PageLoaded) {
           setState(() => page = state.data);

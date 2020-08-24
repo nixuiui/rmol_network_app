@@ -27,7 +27,7 @@ class _FavoriteTabState extends State<FavoriteTab> {
   @override
   Widget build(BuildContext context) {
     return BlocListener(
-      bloc: favoritBloc,
+      cubit: favoritBloc,
       listener: (context, state) {
         if(state is NewsFavoritsLoaded) {
           setState(() {

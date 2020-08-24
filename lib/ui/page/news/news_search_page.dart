@@ -56,7 +56,7 @@ class NewsSearchPageState extends State<NewsSearchPage> {
   @override
   Widget build(BuildContext context) {
     return BlocListener(
-      bloc: bloc,
+      cubit: bloc,
       listener: (context, state) {
         if(state is NewsLoaded) {
           setState(() {

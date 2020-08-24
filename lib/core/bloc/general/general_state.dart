@@ -42,7 +42,7 @@ class PageLoaded extends GeneralState {
 }
 
 class AdsLoaded extends GeneralState {
-  final AdsItem data;
+  final AdsModel data;
 
   const AdsLoaded({@required this.data});
 

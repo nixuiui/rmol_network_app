@@ -1,117 +1,137 @@
 import 'package:flutter/material.dart';
+import 'package:rmol_network_app/core/models/ads_model.dart';
 import 'package:rmol_network_app/core/models/news_model.dart';
 import 'package:rmol_network_app/helper/app_general_widget.dart';
 import 'package:shimmer/shimmer.dart';
 import 'package:timeago/timeago.dart' as TimeAgo;
+import 'package:url_launcher/url_launcher.dart';
 
 class NewsVerticalItem extends StatelessWidget {
   const NewsVerticalItem({
     Key key,
     this.onClick,
-    this.news
+    this.news,
+    this.ads
   }) : super(key: key);
 
   final VoidCallback onClick;
   final NewsModel news;
+  final AdsModel ads;
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      behavior: HitTestBehavior.translucent,
-      onTap: onClick,
-      child: Container(
-        padding: EdgeInsets.all(16),
-        color: Colors.white,
-        child: Row(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          mainAxisSize: MainAxisSize.max,
-          children: <Widget>[
-            Expanded(
-              flex: 5,
-              child: AspectRatio(
-                aspectRatio: 400/280,
-                child: Container(
-                  alignment: Alignment.topLeft,
-                  margin: EdgeInsets.only(right: 16),
-                  decoration: BoxDecoration(
-                    color: Colors.grey[200],
-                    borderRadius: BorderRadius.circular(4.0),
-                    image: DecorationImage(
-                      fit: BoxFit.cover,
-                      image: NetworkImage(news.content.imageBig)
-                    ),
-                  ),
-                ),
-              ),
-            ), 
-            Expanded(
-              flex: 8,
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  Text(news.content.title,
-                  maxLines: 3,
-                  overflow: TextOverflow.ellipsis,
-                    style: TextStyle(
-                      fontWeight: FontWeight.w600,
-                      fontSize: 16,
-                    ),
-                  ),
-                  SizedBox(height: 8),
-                  Wrap(
-                    crossAxisAlignment: WrapCrossAlignment.center,
-                    children: <Widget>[
-                      Text(news.content.categoryName, 
-                        style: TextStyle(
-                          fontSize: 10,
-                          color: Colors.black38,
-                        )
-                      ),
-                      AppGeneralWidget.dotIcon,
-                      Text(TimeAgo.format(news.content.createdAt, locale: 'id').toUpperCase(),
-                        style: TextStyle(
-                          fontSize: 10,
-                          color: Colors.black38,
-                        )
-                      ),
-                    ],
-                  ),
-                  SizedBox(height: 8),
-                  Row(
-                    children: <Widget>[
-                      Container(
-                        width: 16,
-                        height: 16,
-                        alignment: Alignment.topLeft,
-                        margin: EdgeInsets.only(right: 8),
-                        decoration: BoxDecoration(
-                          color: Colors.grey[200],
-                          borderRadius: BorderRadius.circular(50),
-                          // image: news.writerImage != null ? DecorationImage(
-                          //   fit: BoxFit.cover,
-                          //   image: NetworkImage(news.writerImage),
-                          // ) : null,
+    return Column(
+      children: [
+        GestureDetector(
+          behavior: HitTestBehavior.translucent,
+          onTap: onClick,
+          child: Container(
+            padding: EdgeInsets.all(16),
+            color: Colors.white,
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisSize: MainAxisSize.max,
+              children: <Widget>[
+                Expanded(
+                  flex: 5,
+                  child: AspectRatio(
+                    aspectRatio: 400/280,
+                    child: Container(
+                      alignment: Alignment.topLeft,
+                      margin: EdgeInsets.only(right: 16),
+                      decoration: BoxDecoration(
+                        color: Colors.grey[200],
+                        borderRadius: BorderRadius.circular(4.0),
+                        image: DecorationImage(
+                          fit: BoxFit.cover,
+                          image: NetworkImage(news.content.imageBig)
                         ),
                       ),
-                      Expanded(
-                        child: Text(news.content.authorUsername, 
-                          overflow: TextOverflow.ellipsis,
-                          maxLines: 1,
-                          style: TextStyle(
-                            color: Colors.black87,
-                            fontSize: 12
+                    ),
+                  ),
+                ), 
+                Expanded(
+                  flex: 8,
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      Text(news.content.title,
+                      maxLines: 3,
+                      overflow: TextOverflow.ellipsis,
+                        style: TextStyle(
+                          fontWeight: FontWeight.w600,
+                          fontSize: 16,
+                        ),
+                      ),
+                      SizedBox(height: 8),
+                      Wrap(
+                        crossAxisAlignment: WrapCrossAlignment.center,
+                        children: <Widget>[
+                          Text(news.content.categoryName, 
+                            style: TextStyle(
+                              fontSize: 10,
+                              color: Colors.black38,
+                            )
+                          ),
+                          AppGeneralWidget.dotIcon,
+                          Text(TimeAgo.format(news.content.createdAt, locale: 'id').toUpperCase(),
+                            style: TextStyle(
+                              fontSize: 10,
+                              color: Colors.black38,
+                            )
+                          ),
+                        ],
+                      ),
+                      SizedBox(height: 8),
+                      Row(
+                        children: <Widget>[
+                          Container(
+                            width: 16,
+                            height: 16,
+                            alignment: Alignment.topLeft,
+                            margin: EdgeInsets.only(right: 8),
+                            decoration: BoxDecoration(
+                              color: Colors.grey[200],
+                              borderRadius: BorderRadius.circular(50),
+                              // image: news.writerImage != null ? DecorationImage(
+                              //   fit: BoxFit.cover,
+                              //   image: NetworkImage(news.writerImage),
+                              // ) : null,
+                            ),
+                          ),
+                          Expanded(
+                            child: Text(news.content.authorUsername, 
+                              overflow: TextOverflow.ellipsis,
+                              maxLines: 1,
+                              style: TextStyle(
+                                color: Colors.black87,
+                                fontSize: 12
+                              )
+                            ),
                           )
-                        ),
+                        ],
                       )
                     ],
-                  )
-                ],
-              ),
+                  ),
+                ),
+              ]
             ),
-          ]
+          ),
         ),
-      ),
+        ads?.getAds()?.img == null ? Container() : GestureDetector(
+          onTap: () => _launchURL(ads?.getAds()?.link),
+          child: Image.network(ads?.getAds()?.img)
+        )
+      ],
     );
+  }
+  
+  _launchURL(String url) async {
+    if (await canLaunch(url)) {
+      await launch(url);
+    } else {
+      throw 'Could not launch $url';
+    }
   }
 }
 

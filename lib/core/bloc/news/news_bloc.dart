@@ -12,8 +12,7 @@ class NewsBloc extends Bloc<NewsEvent, NewsState> {
   int page = 1;
   int perPage = 20;
 
-  @override
-  NewsState get initialState => NewsUninitialized();
+  NewsBloc() : super(NewsUninitialized());
 
   @override
   Stream<NewsState> mapEventToState(NewsEvent event) async* {

@@ -108,7 +108,7 @@ class _NewsListState extends State<NewsList> {
   @override
   Widget build(BuildContext context) {
     return BlocListener(
-      bloc: bloc,
+      cubit: bloc,
       listener: (context, state) {
         if(state is NewsLoaded) {
           _refreshController.refreshCompleted();

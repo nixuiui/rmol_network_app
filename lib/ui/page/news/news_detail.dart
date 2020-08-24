@@ -44,7 +44,7 @@ class _NewsDetailState extends State<NewsDetail> {
   bool isStarting = true;
 
   final adsBloc = GeneralBloc();
-  AdsItem ads;
+  AdsModel ads;
 
   @override
   void initState() {
@@ -61,7 +61,7 @@ class _NewsDetailState extends State<NewsDetail> {
     return MultiBlocListener(
       listeners: [
         BlocListener(
-          bloc: bloc,
+          cubit: bloc,
           listener: (context, state) {
             if(state is NewsLoaded) {
               setState(() {
@@ -72,7 +72,7 @@ class _NewsDetailState extends State<NewsDetail> {
           }
         ),
         BlocListener(
-          bloc: favoritBloc,
+          cubit: favoritBloc,
           listener: (context, state) {
             if(state is NewsFavoritsLoaded) {
               setState(() {
@@ -87,7 +87,7 @@ class _NewsDetailState extends State<NewsDetail> {
           }
         ),
         BlocListener(
-          bloc: adsBloc,
+          cubit: adsBloc,
           listener: (context, state) async {
             if(state is AdsLoaded) {
               setState(() => ads = state.data);
@@ -298,9 +298,9 @@ class _NewsDetailState extends State<NewsDetail> {
                               }).toList(),
                             ),
                           ),
-                          ads?.img != null ? GestureDetector(
-                            onTap: () => _launchURL(ads?.link),
-                            child: Image.network(ads?.img)
+                          ads?.getAds()?.img != null ? GestureDetector(
+                            onTap: () => _launchURL(ads?.getAds()?.link),
+                            child: Image.network(ads?.getAds()?.img)
                           ) : Container(),
                         ],
                       ),

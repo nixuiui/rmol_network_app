@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'dart:math';
 import 'package:bloc/bloc.dart';
 import 'package:package_info/package_info.dart';
 import 'package:rmol_network_app/core/api/general_api.dart';
@@ -12,8 +11,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 class GeneralBloc extends Bloc<GeneralEvent, GeneralState> {
   final api = GeneralApi();
 
-  @override
-  GeneralState get initialState => GeneralUninitialized();
+  GeneralBloc() : super(GeneralUninitialized());
 
   @override
   Stream<GeneralState> mapEventToState(GeneralEvent event) async* {
@@ -69,12 +67,7 @@ class GeneralBloc extends Bloc<GeneralEvent, GeneralState> {
       try {
         yield GeneralLoading();
         final response = await api.loadAds();
-        var random = Random().nextInt(3);
-        var ads = response.adsone;
-        if(random == 1) ads = response.adsone;
-        else if(random == 2) ads = response.adstwo;
-        else if(random == 3) ads = response.adsthree;
-        yield AdsLoaded(data: ads);
+        yield AdsLoaded(data: response);
       } catch (error) {
         print("ERROR: $error");
         yield GeneralFailure(error: error.toString());

@@ -41,7 +41,7 @@ class HomeTab extends StatefulWidget {
   final bool isStarting;
   final bool isLoadMore;
   final bool hasReachedMax;
-  final AdsItem ads;
+  final AdsModel ads;
 
   @override
   _HomeTabState createState() => _HomeTabState();
@@ -104,9 +104,9 @@ class _HomeTabState extends State<HomeTab> {
                 ) : ShimmerNewsHorizontalItem()
               ),
             ),
-            widget.ads?.img != null ? GestureDetector(
-              onTap: () => _launchURL(widget.ads?.link),
-              child: Image.network(widget.ads?.img)
+            widget.ads?.getAds()?.img != null ? GestureDetector(
+              onTap: () => _launchURL(widget.ads?.getAds()?.link),
+              child: Image.network(widget.ads?.getAds()?.img)
             ) : Container(),
             HeaderForListWidget(title: "Indonesia Terkini", page: null),
             ListView.separated(
@@ -198,6 +198,10 @@ class _HomeTabState extends State<HomeTab> {
                 ) : ShimmerNewsHorizontalItem()
               ),
             ),
+            widget.ads?.getAds()?.img != null ? GestureDetector(
+              onTap: () => _launchURL(widget.ads?.getAds()?.link),
+              child: Image.network(widget.ads?.getAds()?.img)
+            ) : Container(),
             Divider(),
             ListView(
               shrinkWrap: true,
@@ -212,6 +216,7 @@ class _HomeTabState extends State<HomeTab> {
                   itemCount: widget.latePosts.length,
                   itemBuilder: (context, index) => NewsVerticalItem(
                     news: widget.latePosts[index],
+                    ads: (index+1)%15 == 0 ? widget.ads : null,
                     onClick: () => Navigator.push(
                       context,
                       MaterialPageRoute(builder: (context) => NewsDetail(news: widget.latePosts[index])),

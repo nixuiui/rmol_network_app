@@ -27,7 +27,7 @@ class _AboutTabState extends State<AboutTab> {
   @override
   Widget build(BuildContext context) {
     return BlocListener(
-      bloc: generalBloc,
+      cubit: generalBloc,
       listener: (context, state) {
         if(state is GeneralInfoLoaded) {
           setState(() {
