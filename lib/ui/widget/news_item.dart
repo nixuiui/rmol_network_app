@@ -32,7 +32,7 @@ class NewsVerticalItem extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisSize: MainAxisSize.max,
               children: <Widget>[
-                Expanded(
+                news?.content?.imageBig == null ? Container() : Expanded(
                   flex: 5,
                   child: AspectRatio(
                     aspectRatio: 400/280,
