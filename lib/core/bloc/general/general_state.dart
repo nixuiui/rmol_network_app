@@ -25,11 +25,15 @@ class GeneralInfoLoaded extends GeneralState {
 
 class UpdateCheckingResult extends GeneralState {
   final bool isNeedUpdate;
+  final GeneralInfoModel data;
 
-  const UpdateCheckingResult({@required this.isNeedUpdate});
+  const UpdateCheckingResult({
+    @required this.isNeedUpdate,
+    @required this.data
+  });
 
   @override
-  List<Object> get props => [isNeedUpdate];
+  List<Object> get props => [isNeedUpdate, data];
 }
 
 class PageLoaded extends GeneralState {

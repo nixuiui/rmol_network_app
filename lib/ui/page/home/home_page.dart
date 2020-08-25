@@ -16,6 +16,7 @@ import 'package:rmol_network_app/ui/page/home/about_tab.dart';
 import 'package:rmol_network_app/ui/page/home/category_tab.dart';
 import 'package:rmol_network_app/ui/page/home/favorit_tab.dart';
 import 'package:rmol_network_app/ui/page/home/home_tab.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class HomePage extends StatefulWidget {
   @override
@@ -188,7 +189,10 @@ class _HomePageState extends State<HomePage> {
                           Container(
                             width: MediaQuery.of(context).size.width,
                             child: RaisedButton(
-                              onPressed: (){},
+                              onPressed: () {
+                                Navigator.pop(context);
+                                _launchURL(state.data.androidDownloadLink);
+                              },
                               color: Colors.red,
                               elevation: 0,
                               shape: RoundedRectangleBorder(
@@ -263,6 +267,14 @@ class _HomePageState extends State<HomePage> {
         isLoadMore = true;
       });
       _layoutPage[0] = setHomeTab();
+    }
+  }
+
+  _launchURL(String url) async {
+    if (await canLaunch(url)) {
+      await launch(url);
+    } else {
+      throw 'Could not launch $url';
     }
   }
 }
