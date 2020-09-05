@@ -1,7 +1,12 @@
 import 'dart:async';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:package_info/package_info.dart';
+import 'package:rmol_network_app/core/bloc/general/general_bloc.dart';
+import 'package:rmol_network_app/core/bloc/general/general_event.dart';
+import 'package:rmol_network_app/core/bloc/general/general_state.dart';
+import 'package:rmol_network_app/core/models/general_info.dart';
 
 class SplashScreen extends StatefulWidget {
   @override
@@ -12,10 +17,13 @@ class _SplashScreenState extends State<SplashScreen> {
 
   PackageInfo packageInfo;
   String version = "";
+  final bloc = GeneralBloc();
+  GeneralInfoModel data;
 
   @override
   void initState() {
     super.initState();
+    bloc.add(LoadGeneralInfo(refresh: true));
     _getAppInfo();
   }
 
@@ -23,28 +31,38 @@ class _SplashScreenState extends State<SplashScreen> {
     packageInfo = await PackageInfo.fromPlatform();
     setState(() {
       version = packageInfo.version;
-      startSplashScreen();
     });
   }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      backgroundColor: Colors.white,
-      body: SafeArea(
-        child: Column(
-          children: <Widget>[
-            Expanded(
-              child: Center(
-                child: Image.asset(
-                  "assets/logo.png", 
-                  width: MediaQuery.of(context).size.width * (2/3),
-                )
+    return BlocListener(
+      cubit: bloc,
+      listener: (context, state) {
+        if(state is GeneralInfoLoaded) {
+          startSplashScreen();
+          setState(() {
+            data = state.data;
+          });
+        }
+      },
+      child: Scaffold(
+        backgroundColor: Colors.white,
+        body: SafeArea(
+          child: Column(
+            children: <Widget>[
+              Expanded(
+                child: Center(
+                  child: data != null ? Image.network(
+                    data.companyLogoColor, 
+                    width: MediaQuery.of(context).size.width * (2/3),
+                  ) : Container()
+                ),
               ),
-            ),
-            Text("$version"),
-            SizedBox(height: 24)
-          ],
+              Text("$version"),
+              SizedBox(height: 24)
+            ],
+          ),
         ),
       ),
     );

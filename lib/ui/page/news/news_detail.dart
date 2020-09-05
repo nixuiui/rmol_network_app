@@ -127,7 +127,7 @@ class _NewsDetailState extends State<NewsDetail> {
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: <Widget>[
-                                Text("Oleh", style: TextStyle(
+                                Text(widget.news.content.hideReport == 1 ? "Oleh" : "Laporan", style: TextStyle(
                                   color: Colors.grey[700],
                                   fontSize: 11
                                 )),

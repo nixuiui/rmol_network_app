@@ -7,7 +7,14 @@ abstract class GeneralEvent extends Equatable {
   List<Object> get props => [];
 }
 
-class LoadGeneralInfo extends GeneralEvent {}
+class LoadGeneralInfo extends GeneralEvent {
+  final bool refresh;
+
+  const LoadGeneralInfo({this.refresh});
+
+  @override
+  List<Object> get props => [refresh];
+}
 
 class LoadAds extends GeneralEvent {}
 

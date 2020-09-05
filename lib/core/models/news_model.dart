@@ -54,6 +54,7 @@ class Content {
         this.editorUsername,
         this.editorSlug,
         this.commentCount,
+        this.hideReport,
     });
 
     int id;
@@ -84,6 +85,7 @@ class Content {
     String editorUsername;
     String editorSlug;
     int commentCount;
+    int hideReport;
 
     factory Content.fromJson(Map<String, dynamic> json) => Content(
         id: json["id"],
@@ -114,6 +116,7 @@ class Content {
         editorUsername: json["editor_username"],
         editorSlug: json["editor_slug"],
         commentCount: json["comment_count"],
+        hideReport: json["hide_report"],
     );
 
     Map<String, dynamic> toJson() => {
@@ -145,6 +148,7 @@ class Content {
         "editor_username": editorUsername,
         "editor_slug": editorSlug,
         "comment_count": commentCount,
+        "hide_report": hideReport,
     };
 }
 

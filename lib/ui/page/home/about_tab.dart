@@ -9,6 +9,13 @@ import 'package:rmol_network_app/ui/page/info_page.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class AboutTab extends StatefulWidget {
+  const AboutTab({
+    Key key,
+    this.appInfo
+  }) : super(key: key);
+
+  final GeneralInfoModel appInfo;
+
   @override
   _AboutTabState createState() => _AboutTabState();
 }
@@ -46,7 +53,7 @@ class _AboutTabState extends State<AboutTab> {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: <Widget>[
                     SizedBox(height: 48),
-                    Image.asset("assets/logo.png", width: 140),
+                    info != null ? Image.network(info.companyLogoColor, width: 160) : Container(),
                     SizedBox(height: 48),
                     Container(
                       width: MediaQuery.of(context).size.width,
@@ -78,12 +85,6 @@ class _AboutTabState extends State<AboutTab> {
                               color: Colors.black87,
                               fontWeight: FontWeight.w600
                             )),
-                            // onTap: () => Navigator.push(context,
-                            //   MaterialPageRoute(builder: (context) => InfoPage(
-                            //     title: "Kontak",
-                            //     data: AboutUnpaders.contact,
-                            //   )),
-                            // ),
                           ),
                           Divider(),
                           ListTile(

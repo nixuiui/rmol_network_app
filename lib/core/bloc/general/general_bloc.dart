@@ -36,9 +36,11 @@ class GeneralBloc extends Bloc<GeneralEvent, GeneralState> {
         yield GeneralLoading();
         var info = prefs.getString("general_info");
         if(info != null) yield GeneralInfoLoaded(data: generalInfoModelFromJson(info));
-        final response = await api.loadGeneralInfo();
-        prefs.setString("general_info", generalInfoModelToJson(response));
-        yield GeneralInfoLoaded(data: response);
+        if(info == null || event.refresh) {
+          final response = await api.loadGeneralInfo();
+          prefs.setString("general_info", generalInfoModelToJson(response));
+          yield GeneralInfoLoaded(data: response);
+        }
       } catch (error) {
         print("ERROR: $error");
         yield GeneralFailure(error: error.toString());

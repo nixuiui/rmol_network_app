@@ -83,33 +83,13 @@ class NewsVerticalItem extends StatelessWidget {
                         ],
                       ),
                       SizedBox(height: 8),
-                      Row(
-                        children: <Widget>[
-                          Container(
-                            width: 16,
-                            height: 16,
-                            alignment: Alignment.topLeft,
-                            margin: EdgeInsets.only(right: 8),
-                            decoration: BoxDecoration(
-                              color: Colors.grey[200],
-                              borderRadius: BorderRadius.circular(50),
-                              // image: news.writerImage != null ? DecorationImage(
-                              //   fit: BoxFit.cover,
-                              //   image: NetworkImage(news.writerImage),
-                              // ) : null,
-                            ),
-                          ),
-                          Expanded(
-                            child: Text(news.content.authorUsername, 
-                              overflow: TextOverflow.ellipsis,
-                              maxLines: 1,
-                              style: TextStyle(
-                                color: Colors.black87,
-                                fontSize: 12
-                              )
-                            ),
-                          )
-                        ],
+                      Text(news.content.authorUsername, 
+                        overflow: TextOverflow.ellipsis,
+                        maxLines: 1,
+                        style: TextStyle(
+                          color: Colors.black87,
+                          fontSize: 12
+                        )
                       )
                     ],
                   ),

@@ -11,6 +11,7 @@ import 'package:rmol_network_app/core/bloc/news/news_event.dart';
 import 'package:rmol_network_app/core/bloc/news/news_state.dart';
 import 'package:rmol_network_app/core/models/ads_model.dart';
 import 'package:rmol_network_app/core/models/category_model.dart';
+import 'package:rmol_network_app/core/models/general_info.dart';
 import 'package:rmol_network_app/core/models/news_model.dart';
 import 'package:rmol_network_app/ui/page/home/about_tab.dart';
 import 'package:rmol_network_app/ui/page/home/category_tab.dart';
@@ -31,6 +32,8 @@ class _HomePageState extends State<HomePage> {
   RefreshController categoryRefreshController = RefreshController(initialRefresh: false);
 
   final generalBloc = GeneralBloc();
+  final appInfoBloc = GeneralBloc();
+  GeneralInfoModel appInfo;
 
   final homeBloc = NewsBloc();
   final newsBloc = NewsBloc();
@@ -66,6 +69,7 @@ class _HomePageState extends State<HomePage> {
     refreshHome();
     refreshCategory();
     generalBloc.add(CheckUpdate());
+    appInfoBloc.add(LoadGeneralInfo());
     super.initState();
   }
 
@@ -92,6 +96,7 @@ class _HomePageState extends State<HomePage> {
       webtorials: webtorials,
       isLoadMore: isLoadMore,
       hasReachedMax: hasReachedMax,
+      appInfo: appInfo,
       ads: ads
     );
   }
@@ -144,6 +149,16 @@ class _HomePageState extends State<HomePage> {
                 categoryStarting = false;
                 categories = state.data;
                 _layoutPage[1] = setCategoryTab();
+              });
+            }
+          }
+        ),
+        BlocListener(
+          cubit: appInfoBloc,
+          listener: (context, state) {
+            if(state is GeneralInfoLoaded) {
+              setState(() {
+                appInfo = state.data;
               });
             }
           }

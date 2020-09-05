@@ -7,7 +7,11 @@ String generalInfoModelToJson(GeneralInfoModel data) => json.encode(data.toJson(
 class GeneralInfoModel {
     GeneralInfoModel({
         this.siteurl,
+        this.rmolidLogo,
+        this.rmolidIcon,
+        this.rmolnetworkLogo,
         this.companyLogo,
+        this.companyLogoColor,
         this.companyName,
         this.companyAbout,
         this.copyright,
@@ -27,7 +31,11 @@ class GeneralInfoModel {
     });
 
     String siteurl;
+    String rmolidLogo;
+    String rmolidIcon;
+    String rmolnetworkLogo;
     String companyLogo;
+    String companyLogoColor;
     String companyName;
     String companyAbout;
     String copyright;
@@ -47,7 +55,11 @@ class GeneralInfoModel {
 
     factory GeneralInfoModel.fromJson(Map<String, dynamic> json) => GeneralInfoModel(
         siteurl: json["siteurl"],
+        rmolidLogo: json["rmolid_logo"],
+        rmolidIcon: json["rmolid_icon"],
+        rmolnetworkLogo: json["rmolnetwork_logo"],
         companyLogo: json["company_logo"],
+        companyLogoColor: json["company_logo_color"],
         companyName: json["company_name"],
         companyAbout: json["company_about"],
         copyright: json["copyright"],
@@ -68,7 +80,11 @@ class GeneralInfoModel {
 
     Map<String, dynamic> toJson() => {
         "siteurl": siteurl,
+        "rmolid_logo": rmolidLogo,
+        "rmolid_icon": rmolidIcon,
+        "rmolnetwork_logo": rmolnetworkLogo,
         "company_logo": companyLogo,
+        "company_logo_color": companyLogoColor,
         "company_name": companyName,
         "company_about": companyAbout,
         "copyright": copyright,
