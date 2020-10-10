@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:package_info/package_info.dart';
@@ -7,6 +8,7 @@ import 'package:rmol_network_app/core/bloc/general/general_bloc.dart';
 import 'package:rmol_network_app/core/bloc/general/general_event.dart';
 import 'package:rmol_network_app/core/bloc/general/general_state.dart';
 import 'package:rmol_network_app/core/models/general_info.dart';
+import 'package:rmol_network_app/helper/notification_handler.dart';
 
 class SplashScreen extends StatefulWidget {
   @override
@@ -19,6 +21,7 @@ class _SplashScreenState extends State<SplashScreen> {
   String version = "";
   final bloc = GeneralBloc();
   GeneralInfoModel data;
+  bool isNotifClicked = false;
 
   @override
   void initState() {
@@ -32,6 +35,22 @@ class _SplashScreenState extends State<SplashScreen> {
     setState(() {
       version = packageInfo.version;
     });
+  }
+
+  setFirebase() async {
+    FirebaseMessaging _firebaseMessaging = FirebaseMessaging();
+    _firebaseMessaging.configure(
+      onLaunch: (Map<String, dynamic> message) async {
+        setState(() {
+          isNotifClicked = true;
+        });
+        NotificationHandler handler = NotificationHandler(message: message);
+        Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(builder: (context) => handler.pageDirection()),
+        );
+      }
+    );
   }
 
   @override
@@ -71,7 +90,9 @@ class _SplashScreenState extends State<SplashScreen> {
   startSplashScreen() async {
     var duration = const Duration(seconds: 2);
     return Timer(duration, () {
-      Navigator.of(context).pushReplacementNamed("/home");
+      if(!isNotifClicked) {
+        Navigator.of(context).pushReplacementNamed("/home");
+      }
     });
   }
 }

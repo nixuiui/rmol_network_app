@@ -53,5 +53,14 @@ class NewsApi extends MainApi {
       throw Exception(error);
     }
   }
+  
+  Future<NewsModel> loadNewsDetail(String id) async {
+    try {
+      final response = await getRequest(url: "$host/news/$id");
+      return newsDetailFromJson(response);
+    } catch (error) {
+      throw Exception(error);
+    }
+  }
 
 }
