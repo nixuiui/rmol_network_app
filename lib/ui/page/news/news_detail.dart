@@ -138,7 +138,7 @@ class _NewsDetailState extends State<NewsDetail> {
                               borderRadius: BorderRadius.circular(50),
                               image: DecorationImage(
                                 fit: BoxFit.cover,
-                                image: NetworkImage("http://rmoljatim.id/assets/img/user.png"),
+                                image: NetworkImage("http://rmolsumut.id/assets/img/user.png"),
                               ),
                             ),
                           ),
