@@ -1,6 +1,10 @@
+import 'dart:io';
+
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_icons/flutter_icons.dart';
+import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
 import 'package:rmol_network_app/core/bloc/general/general_bloc.dart';
@@ -13,10 +17,12 @@ import 'package:rmol_network_app/core/models/ads_model.dart';
 import 'package:rmol_network_app/core/models/category_model.dart';
 import 'package:rmol_network_app/core/models/general_info.dart';
 import 'package:rmol_network_app/core/models/news_model.dart';
+import 'package:rmol_network_app/helper/notification_handler.dart';
 import 'package:rmol_network_app/ui/page/home/about_tab.dart';
 import 'package:rmol_network_app/ui/page/home/category_tab.dart';
 import 'package:rmol_network_app/ui/page/home/favorit_tab.dart';
 import 'package:rmol_network_app/ui/page/home/home_tab.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class HomePage extends StatefulWidget {
@@ -59,6 +65,8 @@ class _HomePageState extends State<HomePage> {
 
   @override
   void initState() {
+    setFCM();
+    initLocalNotification();
     scrollController.addListener(_onScroll);
     _layoutPage = [
       setHomeTab(),
@@ -291,5 +299,102 @@ class _HomePageState extends State<HomePage> {
     } else {
       throw 'Could not launch $url';
     }
+  }
+
+  // ------------------
+  // FIREBASE MESSAGING
+  // ------------------
+  FirebaseMessaging _firebaseMessaging = FirebaseMessaging();
+  setFCM() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    _firebaseMessaging.subscribeToTopic("rmoljatim_public");
+    _firebaseMessaging.requestNotificationPermissions(
+      const IosNotificationSettings(sound: true, badge: true, alert: true, provisional: true)
+    );
+    _firebaseMessaging.onIosSettingsRegistered.listen((IosNotificationSettings settings) {
+      print("Settings registered: $settings");
+    });
+    _firebaseMessaging.getToken().then((String token) {
+      assert(token != null);
+      print("TOKEN: $token");
+      prefs.setString("fcmToken", token);
+    });
+
+    _firebaseMessaging.configure(
+      onMessage: (Map<String, dynamic> message) async {
+        print("onMessage");
+        print(message);
+        NotificationHandler handler = NotificationHandler(message: message);
+        _showNotification(handler);
+      },
+      onResume: (Map<String, dynamic> message) async {
+        print("onResume");
+        print(message);
+        NotificationHandler handler = NotificationHandler(message: message);
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => handler.pageDirection()),
+        );
+      },
+    );
+  }
+
+  // ------------------
+  // NOTIFICATION
+  // ------------------
+  FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin = new FlutterLocalNotificationsPlugin();
+  var initializationSettingsAndroid;
+  var initializationSettingsIOS;
+  var initializationSettings;
+
+  initLocalNotification() {
+    if(Platform.isAndroid) {
+      initializationSettingsAndroid = new AndroidInitializationSettings('notif_icon');
+      // initializationSettingsIOS = IOSInitializationSettings(
+      //   onDidReceiveLocalNotification: onDidReceiveLocalNotification
+      // );
+      initializationSettings = new InitializationSettings(
+        initializationSettingsAndroid, initializationSettingsIOS
+      );
+      flutterLocalNotificationsPlugin.initialize(initializationSettings,
+        onSelectNotification: onSelectNotification
+      );
+    }
+  }
+
+  void _showNotification(NotificationHandler handler) async {
+    await _demoNotification(handler);
+  }
+  
+  Future<void> _demoNotification(NotificationHandler handler) async {
+    var androidPlatformChannelSpecifics = AndroidNotificationDetails(
+      'channel_ID', 
+      'channel_name', 
+      'channel_description',
+      importance: Importance.Max,
+      priority: Priority.High,
+      ticker: 'test ticker'
+    );
+
+    var iOSChannelSpecifics = IOSNotificationDetails();
+    var platformChannelSpecifics = NotificationDetails(
+      androidPlatformChannelSpecifics, 
+      iOSChannelSpecifics
+    );
+
+    await flutterLocalNotificationsPlugin.show(
+      0, 
+      handler.getTitle(),
+      handler.getMessage(), 
+      platformChannelSpecifics,
+      payload: "${handler.getType()}#${handler.getId()}"
+    );
+  }
+
+  Future onSelectNotification(String payload) async {
+    var split = payload.split("#");
+    await Navigator.push(context, new MaterialPageRoute(
+      builder: (context) => pageDirectionFromNotification(split[0], split[1]))
+    );
   }
 }

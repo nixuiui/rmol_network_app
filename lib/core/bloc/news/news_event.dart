@@ -36,6 +36,17 @@ class UpdateFavorite extends NewsEvent {
   List<Object> get props => [favorits];
 }
 
+class LoadNewsDetail extends NewsEvent {
+  final String id;
+
+  const LoadNewsDetail({
+    this.id
+  });
+
+  @override
+  List<Object> get props => [id];
+}
+
 class LoadNews extends NewsEvent {
   final String type;
   final String tag;

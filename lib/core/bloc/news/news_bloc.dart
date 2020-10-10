@@ -122,6 +122,17 @@ class NewsBloc extends Bloc<NewsEvent, NewsState> {
       }
     }
     
+    if (event is LoadNewsDetail) {
+      yield NewsLoading();
+      try {
+        final response = await api.loadNewsDetail(event.id);
+        yield NewsDetailLoaded(data: response);
+      } catch (error) {
+        print("ERROR: $error");
+        yield NewsFailure(error: error.toString());
+      }
+    }
+    
     if (event is UpdateFavorite) {
       prefs.setString("favorits", newsModelToJson(event.favorits));
     }

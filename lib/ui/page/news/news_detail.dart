@@ -17,16 +17,20 @@ import 'package:rmol_network_app/core/models/ads_model.dart';
 import 'package:rmol_network_app/core/models/news_model.dart';
 import 'package:rmol_network_app/helper/app_general_widget.dart';
 import 'package:rmol_network_app/ui/page/news/news_list_page.dart';
+import 'package:rmol_network_app/ui/widget/box.dart';
 import 'package:rmol_network_app/ui/widget/header_for_list.dart';
 import 'package:rmol_network_app/ui/widget/news_item.dart';
+import 'package:shimmer/shimmer.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class NewsDetail extends StatefulWidget {
   const NewsDetail({
     Key key,
-    this.news
+    this.news,
+    this.id
   }) : super(key: key);
 
+  final String id;
   final NewsModel news;
 
   @override
@@ -42,16 +46,24 @@ class _NewsDetailState extends State<NewsDetail> {
   List<NewsModel> favorits = <NewsModel>[];
   bool isFavorite = false;
   bool isStarting = true;
+  NewsModel newsDetail;
 
   final adsBloc = GeneralBloc();
   AdsModel ads;
 
   @override
   void initState() {
+    if(widget.news != null) {
+      newsDetail = widget.news;
+      bloc.add(LoadNews(type: "news", perPage: 5, page: 1));
+    }
+    if(widget.id != null) {
+      bloc.add(LoadNewsDetail(id: widget.id));
+    }
+
     adsBloc.add(LoadAds());
     initializeDateFormatting();
     formatDate = DateFormat.yMMMMEEEEd("id").add_Hm();
-    bloc.add(LoadNews(type: "news", perPage: 5, page: 1));
     favoritBloc.add(LoadFavorits());
     super.initState();
   }
@@ -69,6 +81,12 @@ class _NewsDetailState extends State<NewsDetail> {
                 isStarting = false;
               });
             }
+            else if(state is NewsDetailLoaded) {
+              setState(() {
+                newsDetail = state.data;
+                bloc.add(LoadNews(type: "news", perPage: 5, page: 1));
+              });
+            }
           }
         ),
         BlocListener(
@@ -78,7 +96,7 @@ class _NewsDetailState extends State<NewsDetail> {
               setState(() {
                 favorits = state.data;
                 if(favorits.length > 0) {
-                  if(favorits.firstWhere((item) => item.content.id == widget.news.content.id) != null) {
+                  if(favorits.firstWhere((item) => item.content.id == newsDetail?.content?.id) != null) {
                     isFavorite = true;
                   }
                 }
@@ -100,8 +118,9 @@ class _NewsDetailState extends State<NewsDetail> {
         backgroundColor: Colors.white,
         body: SafeArea(
           child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
-              Container(
+              newsDetail != null ? Container(
                 child: Row(
                   children: <Widget>[
                     AppGeneralWidget.backButton(context),
@@ -127,11 +146,11 @@ class _NewsDetailState extends State<NewsDetail> {
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: <Widget>[
-                                Text(widget.news.content.hideReport == 1 ? "Oleh" : "Laporan", style: TextStyle(
+                                Text(newsDetail?.content?.hideReport == 1 ? "Oleh" : "Laporan", style: TextStyle(
                                   color: Colors.grey[700],
                                   fontSize: 11
                                 )),
-                                Text(widget.news.content.authorUsername, 
+                                Text(newsDetail?.content?.authorUsername ?? "", 
                                   overflow: TextOverflow.ellipsis,
                                   maxLines: 1,
                                   style: TextStyle(
@@ -163,9 +182,37 @@ class _NewsDetailState extends State<NewsDetail> {
                     ),
                   ],
                 ),
+              ) : Row(
+                children: <Widget>[
+                  AppGeneralWidget.backButton(context),
+                  Expanded(
+                    child: Shimmer.fromColors(
+                      baseColor: Colors.grey[300],
+                      highlightColor: Colors.grey[100],
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: <Widget>[
+                          Box(
+                            width: 30,
+                            height: 30,
+                            color: Colors.grey,
+                            borderRadius: 50,
+                          ),
+                          SizedBox(width: 8),
+                          Box(
+                            width: 50,
+                            height: 10,
+                            color: Colors.grey,
+                            borderRadius: 4,
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ],
               ),
               Divider(),
-              Expanded(
+              newsDetail != null ? Expanded(
                 child: ListView(
                   children: <Widget>[
                     Container(
@@ -181,12 +228,12 @@ class _NewsDetailState extends State<NewsDetail> {
                                 onTap: () => Navigator.push(
                                   context,
                                   MaterialPageRoute(builder: (context) => NewsListPage(
-                                    title: widget?.news?.content?.categoryName ?? "",
+                                    title: newsDetail?.content?.categoryName ?? "",
                                     type: "category",
-                                    cat: widget?.news?.content?.categorySlug ?? "",
+                                    cat: newsDetail?.content?.categorySlug ?? "",
                                   )),
                                 ),
-                                child: Text(widget?.news?.content?.categoryName ?? "", 
+                                child: Text(newsDetail?.content?.categoryName ?? "", 
                                   style: TextStyle(
                                     fontSize: 12,
                                     color: Colors.blueAccent
@@ -194,7 +241,7 @@ class _NewsDetailState extends State<NewsDetail> {
                                 ),
                               ),
                               AppGeneralWidget.dotIcon,
-                              Text(formatDate.format(widget.news.content.createdAt).toUpperCase(),
+                              Text(formatDate.format(newsDetail?.content?.createdAt).toUpperCase(),
                                 style: TextStyle(
                                   fontSize: 12,
                                   color: Colors.black45
@@ -204,7 +251,7 @@ class _NewsDetailState extends State<NewsDetail> {
                           ),
                           SizedBox(height: 8),
                           Text(
-                            widget?.news?.content?.title ?? "",
+                            newsDetail?.content?.title ?? "",
                             style: TextStyle(
                               fontSize: 22,
                               color: Colors.black87,
@@ -212,17 +259,17 @@ class _NewsDetailState extends State<NewsDetail> {
                             ),
                           ),
                           SizedBox(height: 32),
-                          ClipRRect(
+                          newsDetail?.content?.imageBig != null ? ClipRRect(
                             borderRadius: BorderRadius.circular(6),
                             child: AspectRatio(
                               aspectRatio: 600/420,
-                              child: Image.network(widget.news.content.imageBig, fit: BoxFit.cover)
+                              child: Image.network(newsDetail?.content?.imageBig ?? "", fit: BoxFit.cover)
                             )
-                          ),
+                          ) : Container(),
                           Padding(
                             padding: const EdgeInsets.only(top: 8),
                             child: Text(
-                              widget?.news?.content?.imageDescription ?? "",
+                              newsDetail?.content?.imageDescription ?? "",
                               style: TextStyle(
                                 fontSize: 12,
                                 color: Colors.black54,
@@ -231,14 +278,14 @@ class _NewsDetailState extends State<NewsDetail> {
                             ),
                           ),
                           SizedBox(height: 16),
-                          Text(widget?.news?.content?.summary ?? "", style: TextStyle(
+                          Text(newsDetail?.content?.summary ?? "", style: TextStyle(
                             fontWeight: FontWeight.w500
                           )),
                           MediaQuery( 
                             data: MediaQuery.of(context).copyWith(textScaleFactor: 1),
                             child: Html(
                               shrinkWrap: true,
-                              data: widget?.news?.content?.content ?? "",
+                              data: newsDetail?.content?.content ?? "",
                               onLinkTap: (url) => _launchURL(url),
                               style: {
                                 "img": Style(
@@ -267,11 +314,11 @@ class _NewsDetailState extends State<NewsDetail> {
                           ),
                           Padding(
                             padding: const EdgeInsets.symmetric(vertical: 16),
-                            child: Text("Editor: ${widget.news?.content?.editorUsername}"),
+                            child: Text("Editor: ${newsDetail?.content?.editorUsername ?? ''}"),
                           ),
                           Container(
                             child: Wrap(
-                              children: widget.news.tag.map((data){
+                              children: newsDetail.tag.map((data){
                                 return GestureDetector(
                                   onTap: () => Navigator.push(
                                     context,
@@ -327,6 +374,39 @@ class _NewsDetailState extends State<NewsDetail> {
                     ) : ShimmerNewsVerticalItem()
                   ],
                 ),
+              ) : Shimmer.fromColors(
+                baseColor: Colors.grey[300],
+                highlightColor: Colors.grey[100],
+                child: Padding(
+                  padding: const EdgeInsets.all(16.0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Box(
+                        width: 200,
+                        height: 10,
+                        borderRadius: 8,
+                        color: Colors.grey,
+                      ),
+                      SizedBox(height: 8),
+                      Box(
+                        width: 300,
+                        height: 10,
+                        borderRadius: 8,
+                        color: Colors.grey,
+                      ),
+                      SizedBox(height: 16),
+                      AspectRatio(
+                        aspectRatio: 800/500,
+                        child: Box(
+                          width: MediaQuery.of(context).size.width,
+                          borderRadius: 8,
+                          color: Colors.grey,
+                        ),
+                      ),
+                    ],
+                  ),
+                )
               ),
             ],
           ),
@@ -344,8 +424,8 @@ class _NewsDetailState extends State<NewsDetail> {
   }
 
   sharePost() {
-    var desc = widget.news.content.title + "\n\n";
-    desc += widget.news.content.postUrl;
+    var desc = (newsDetail?.content?.title ?? "") + "\n\n";
+    desc += newsDetail?.content?.postUrl ?? "";
     Share.text('Bagikan Berita', desc, 'text/plain');
   }
 
@@ -353,10 +433,10 @@ class _NewsDetailState extends State<NewsDetail> {
     setState(() {
       isFavorite = !isFavorite;
       if(isFavorite) {
-        favorits.add(widget.news);
+        favorits.add(newsDetail);
       }
       else {
-        favorits.removeAt(favorits.indexWhere((item) => item.content.id == widget.news.content.id));
+        favorits.removeAt(favorits.indexWhere((item) => item.content.id == newsDetail.content.id));
       }
       favoritBloc.add(UpdateFavorite(favorits: favorits));
     });

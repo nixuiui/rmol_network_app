@@ -48,6 +48,15 @@ class IndonesianNewsLoaded extends NewsState {
   List<Object> get props => [data];
 }
 
+class NewsDetailLoaded extends NewsState {
+  final NewsModel data;
+
+  const NewsDetailLoaded({@required this.data});
+
+  @override
+  List<Object> get props => [data];
+}
+
 class NewsLoaded extends NewsState {
   final List<NewsModel> data;
   final bool hasReachedMax;

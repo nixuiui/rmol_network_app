@@ -1,0 +1,1438 @@
+{
+  "project_info": {
+    "project_number": "635446374322",
+    "firebase_url": "https://rmolsumut-254111.firebaseio.com",
+    "project_id": "rmolsumut-254111",
+    "storage_bucket": "rmolsumut-254111.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:635446374322:android:140a5256550d97aa377eab",
+        "android_client_info": {
+          "package_name": "id.rmolaceh.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "635446374322-qtd0bv94c3faag6rm1mrjgt4qkh76ncn.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "id.rmolaceh.app",
+            "certificate_hash": "4fbc4a18f65745bd14a1670408259ec4769882ba"
+          }
+        },
+        {
+          "client_id": "635446374322-ugttknh5foe6rorbqlj8qg31cvn5fv2g.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA6-9iw8_Vb1nfZ5WvXhfkRLvUkqTe9JWA"
+        },
+        {
+          "current_key": "AIzaSyB75mixn44P7oGpFDLZyvcV9K7Sn8wcDis"
+        },
+        {
+          "current_key": "AIzaSyDBJrF3g1ggQjDEeSrDnUvRFvwcfzMi6Rs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "635446374322-ugttknh5foe6rorbqlj8qg31cvn5fv2g.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:635446374322:android:8b80269356d2d92a377eab",
+        "android_client_info": {
+          "package_name": "id.rmolbabel.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "635446374322-c6h5aapnp2q77m6di92g8ukth11a2pce.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "id.rmolbabel.app",
+            "certificate_hash": "4fbc4a18f65745bd14a1670408259ec4769882ba"
+          }
+        },
+        {
+          "client_id": "635446374322-ugttknh5foe6rorbqlj8qg31cvn5fv2g.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA6-9iw8_Vb1nfZ5WvXhfkRLvUkqTe9JWA"
+        },
+        {
+          "current_key": "AIzaSyB75mixn44P7oGpFDLZyvcV9K7Sn8wcDis"
+        },
+        {
+          "current_key": "AIzaSyDBJrF3g1ggQjDEeSrDnUvRFvwcfzMi6Rs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "635446374322-ugttknh5foe6rorbqlj8qg31cvn5fv2g.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:635446374322:android:0b9b66b3e28d86d0377eab",
+        "android_client_info": {
+          "package_name": "id.rmolbali.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "635446374322-gra811i95jmnl49efc3ivijvipc4gmlm.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "id.rmolbali.app",
+            "certificate_hash": "4fbc4a18f65745bd14a1670408259ec4769882ba"
+          }
+        },
+        {
+          "client_id": "635446374322-ugttknh5foe6rorbqlj8qg31cvn5fv2g.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA6-9iw8_Vb1nfZ5WvXhfkRLvUkqTe9JWA"
+        },
+        {
+          "current_key": "AIzaSyB75mixn44P7oGpFDLZyvcV9K7Sn8wcDis"
+        },
+        {
+          "current_key": "AIzaSyDBJrF3g1ggQjDEeSrDnUvRFvwcfzMi6Rs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "635446374322-ugttknh5foe6rorbqlj8qg31cvn5fv2g.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:635446374322:android:9ed67c007c08e63b377eab",
+        "android_client_info": {
+          "package_name": "id.rmolbanten.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "635446374322-gubnqnrb9cjif39dkrjakls1iirqapmq.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "id.rmolbanten.app",
+            "certificate_hash": "4fbc4a18f65745bd14a1670408259ec4769882ba"
+          }
+        },
+        {
+          "client_id": "635446374322-ugttknh5foe6rorbqlj8qg31cvn5fv2g.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA6-9iw8_Vb1nfZ5WvXhfkRLvUkqTe9JWA"
+        },
+        {
+          "current_key": "AIzaSyB75mixn44P7oGpFDLZyvcV9K7Sn8wcDis"
+        },
+        {
+          "current_key": "AIzaSyDBJrF3g1ggQjDEeSrDnUvRFvwcfzMi6Rs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "635446374322-ugttknh5foe6rorbqlj8qg31cvn5fv2g.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:635446374322:android:2e54310dacb67c99377eab",
+        "android_client_info": {
+          "package_name": "id.rmolbatam.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "635446374322-t5a9ngevrv6enrj4c05vjr0l3g88c0am.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "id.rmolbatam.app",
+            "certificate_hash": "4fbc4a18f65745bd14a1670408259ec4769882ba"
+          }
+        },
+        {
+          "client_id": "635446374322-ugttknh5foe6rorbqlj8qg31cvn5fv2g.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA6-9iw8_Vb1nfZ5WvXhfkRLvUkqTe9JWA"
+        },
+        {
+          "current_key": "AIzaSyB75mixn44P7oGpFDLZyvcV9K7Sn8wcDis"
+        },
+        {
+          "current_key": "AIzaSyDBJrF3g1ggQjDEeSrDnUvRFvwcfzMi6Rs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "635446374322-ugttknh5foe6rorbqlj8qg31cvn5fv2g.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:635446374322:android:d54ee1dcba01eab6377eab",
+        "android_client_info": {
+          "package_name": "id.rmolbengkulu.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "635446374322-p1r3cff2i32au012b3khmthapaukk4mj.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "id.rmolbengkulu.app",
+            "certificate_hash": "4fbc4a18f65745bd14a1670408259ec4769882ba"
+          }
+        },
+        {
+          "client_id": "635446374322-ugttknh5foe6rorbqlj8qg31cvn5fv2g.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA6-9iw8_Vb1nfZ5WvXhfkRLvUkqTe9JWA"
+        },
+        {
+          "current_key": "AIzaSyB75mixn44P7oGpFDLZyvcV9K7Sn8wcDis"
+        },
+        {
+          "current_key": "AIzaSyDBJrF3g1ggQjDEeSrDnUvRFvwcfzMi6Rs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "635446374322-ugttknh5foe6rorbqlj8qg31cvn5fv2g.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:635446374322:android:93ecf864d1f0ac08377eab",
+        "android_client_info": {
+          "package_name": "id.rmolgorontalo.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "635446374322-kcj3e29emumb8sftmku76ej71c69l2ap.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "id.rmolgorontalo.app",
+            "certificate_hash": "4fbc4a18f65745bd14a1670408259ec4769882ba"
+          }
+        },
+        {
+          "client_id": "635446374322-ugttknh5foe6rorbqlj8qg31cvn5fv2g.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA6-9iw8_Vb1nfZ5WvXhfkRLvUkqTe9JWA"
+        },
+        {
+          "current_key": "AIzaSyB75mixn44P7oGpFDLZyvcV9K7Sn8wcDis"
+        },
+        {
+          "current_key": "AIzaSyDBJrF3g1ggQjDEeSrDnUvRFvwcfzMi6Rs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "635446374322-ugttknh5foe6rorbqlj8qg31cvn5fv2g.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:635446374322:android:c829cc391e8e150a377eab",
+        "android_client_info": {
+          "package_name": "id.rmoljabar.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "635446374322-l8eh67nre7t9m4n8bd40c807mc91m8ma.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "id.rmoljabar.app",
+            "certificate_hash": "4fbc4a18f65745bd14a1670408259ec4769882ba"
+          }
+        },
+        {
+          "client_id": "635446374322-ugttknh5foe6rorbqlj8qg31cvn5fv2g.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA6-9iw8_Vb1nfZ5WvXhfkRLvUkqTe9JWA"
+        },
+        {
+          "current_key": "AIzaSyB75mixn44P7oGpFDLZyvcV9K7Sn8wcDis"
+        },
+        {
+          "current_key": "AIzaSyDBJrF3g1ggQjDEeSrDnUvRFvwcfzMi6Rs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "635446374322-ugttknh5foe6rorbqlj8qg31cvn5fv2g.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:635446374322:android:57a3d7d919ff75f6377eab",
+        "android_client_info": {
+          "package_name": "id.rmoljakarta.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "635446374322-6d4hmc8nigin3mfe769jhttje0bkqude.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "id.rmoljakarta.app",
+            "certificate_hash": "4fbc4a18f65745bd14a1670408259ec4769882ba"
+          }
+        },
+        {
+          "client_id": "635446374322-ugttknh5foe6rorbqlj8qg31cvn5fv2g.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA6-9iw8_Vb1nfZ5WvXhfkRLvUkqTe9JWA"
+        },
+        {
+          "current_key": "AIzaSyB75mixn44P7oGpFDLZyvcV9K7Sn8wcDis"
+        },
+        {
+          "current_key": "AIzaSyDBJrF3g1ggQjDEeSrDnUvRFvwcfzMi6Rs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "635446374322-ugttknh5foe6rorbqlj8qg31cvn5fv2g.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:635446374322:android:841e27a92a746479377eab",
+        "android_client_info": {
+          "package_name": "id.rmoljambi.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "635446374322-pafqif2eg6rldqif2jale1t2svpj4euh.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "id.rmoljambi.app",
+            "certificate_hash": "4fbc4a18f65745bd14a1670408259ec4769882ba"
+          }
+        },
+        {
+          "client_id": "635446374322-ugttknh5foe6rorbqlj8qg31cvn5fv2g.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA6-9iw8_Vb1nfZ5WvXhfkRLvUkqTe9JWA"
+        },
+        {
+          "current_key": "AIzaSyB75mixn44P7oGpFDLZyvcV9K7Sn8wcDis"
+        },
+        {
+          "current_key": "AIzaSyDBJrF3g1ggQjDEeSrDnUvRFvwcfzMi6Rs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "635446374322-ugttknh5foe6rorbqlj8qg31cvn5fv2g.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:635446374322:android:add5dee40ed4b064377eab",
+        "android_client_info": {
+          "package_name": "id.rmoljateng.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "635446374322-sig3lrdnjv5hdirtvk28fgokiulj6md7.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "id.rmoljateng.app",
+            "certificate_hash": "4fbc4a18f65745bd14a1670408259ec4769882ba"
+          }
+        },
+        {
+          "client_id": "635446374322-ugttknh5foe6rorbqlj8qg31cvn5fv2g.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA6-9iw8_Vb1nfZ5WvXhfkRLvUkqTe9JWA"
+        },
+        {
+          "current_key": "AIzaSyB75mixn44P7oGpFDLZyvcV9K7Sn8wcDis"
+        },
+        {
+          "current_key": "AIzaSyDBJrF3g1ggQjDEeSrDnUvRFvwcfzMi6Rs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "635446374322-ugttknh5foe6rorbqlj8qg31cvn5fv2g.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:635446374322:android:970f11aac43a0ff6377eab",
+        "android_client_info": {
+          "package_name": "id.rmoljatim.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "635446374322-ror5dnia64utufeuudslnojk1eqh85va.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "id.rmoljatim.app",
+            "certificate_hash": "4fbc4a18f65745bd14a1670408259ec4769882ba"
+          }
+        },
+        {
+          "client_id": "635446374322-ugttknh5foe6rorbqlj8qg31cvn5fv2g.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA6-9iw8_Vb1nfZ5WvXhfkRLvUkqTe9JWA"
+        },
+        {
+          "current_key": "AIzaSyB75mixn44P7oGpFDLZyvcV9K7Sn8wcDis"
+        },
+        {
+          "current_key": "AIzaSyDBJrF3g1ggQjDEeSrDnUvRFvwcfzMi6Rs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "635446374322-ugttknh5foe6rorbqlj8qg31cvn5fv2g.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:635446374322:android:c8d5fb36ab5975ce377eab",
+        "android_client_info": {
+          "package_name": "id.rmoljogja.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "635446374322-3f5474e561nh5h3p3ghtnbe397770ha1.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "id.rmoljogja.app",
+            "certificate_hash": "4fbc4a18f65745bd14a1670408259ec4769882ba"
+          }
+        },
+        {
+          "client_id": "635446374322-ugttknh5foe6rorbqlj8qg31cvn5fv2g.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA6-9iw8_Vb1nfZ5WvXhfkRLvUkqTe9JWA"
+        },
+        {
+          "current_key": "AIzaSyB75mixn44P7oGpFDLZyvcV9K7Sn8wcDis"
+        },
+        {
+          "current_key": "AIzaSyDBJrF3g1ggQjDEeSrDnUvRFvwcfzMi6Rs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "635446374322-ugttknh5foe6rorbqlj8qg31cvn5fv2g.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:635446374322:android:ba260c085d50a12b377eab",
+        "android_client_info": {
+          "package_name": "id.rmolkalbar.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "635446374322-vr1oilmkfpcgadjeoiuavfoo96l4n6bk.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "id.rmolkalbar.app",
+            "certificate_hash": "4fbc4a18f65745bd14a1670408259ec4769882ba"
+          }
+        },
+        {
+          "client_id": "635446374322-ugttknh5foe6rorbqlj8qg31cvn5fv2g.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA6-9iw8_Vb1nfZ5WvXhfkRLvUkqTe9JWA"
+        },
+        {
+          "current_key": "AIzaSyB75mixn44P7oGpFDLZyvcV9K7Sn8wcDis"
+        },
+        {
+          "current_key": "AIzaSyDBJrF3g1ggQjDEeSrDnUvRFvwcfzMi6Rs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "635446374322-ugttknh5foe6rorbqlj8qg31cvn5fv2g.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:635446374322:android:c161744a74e75fe2377eab",
+        "android_client_info": {
+          "package_name": "id.rmolkalsel.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "635446374322-5qiqfsrh6bak8ehplcjkgj2gt1he51k3.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "id.rmolkalsel.app",
+            "certificate_hash": "4fbc4a18f65745bd14a1670408259ec4769882ba"
+          }
+        },
+        {
+          "client_id": "635446374322-ugttknh5foe6rorbqlj8qg31cvn5fv2g.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA6-9iw8_Vb1nfZ5WvXhfkRLvUkqTe9JWA"
+        },
+        {
+          "current_key": "AIzaSyB75mixn44P7oGpFDLZyvcV9K7Sn8wcDis"
+        },
+        {
+          "current_key": "AIzaSyDBJrF3g1ggQjDEeSrDnUvRFvwcfzMi6Rs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "635446374322-ugttknh5foe6rorbqlj8qg31cvn5fv2g.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:635446374322:android:c68b2efc713b0191377eab",
+        "android_client_info": {
+          "package_name": "id.rmolkalteng.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "635446374322-1idu3kfu32hpddi046beaieddj3e1lvm.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "id.rmolkalteng.app",
+            "certificate_hash": "4fbc4a18f65745bd14a1670408259ec4769882ba"
+          }
+        },
+        {
+          "client_id": "635446374322-ugttknh5foe6rorbqlj8qg31cvn5fv2g.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA6-9iw8_Vb1nfZ5WvXhfkRLvUkqTe9JWA"
+        },
+        {
+          "current_key": "AIzaSyB75mixn44P7oGpFDLZyvcV9K7Sn8wcDis"
+        },
+        {
+          "current_key": "AIzaSyDBJrF3g1ggQjDEeSrDnUvRFvwcfzMi6Rs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "635446374322-ugttknh5foe6rorbqlj8qg31cvn5fv2g.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:635446374322:android:59926483b9551c9e377eab",
+        "android_client_info": {
+          "package_name": "id.rmolkaltim.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "635446374322-ev11r754lgve5n8vkjqvm1sh3jjmag31.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "id.rmolkaltim.app",
+            "certificate_hash": "4fbc4a18f65745bd14a1670408259ec4769882ba"
+          }
+        },
+        {
+          "client_id": "635446374322-ugttknh5foe6rorbqlj8qg31cvn5fv2g.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA6-9iw8_Vb1nfZ5WvXhfkRLvUkqTe9JWA"
+        },
+        {
+          "current_key": "AIzaSyB75mixn44P7oGpFDLZyvcV9K7Sn8wcDis"
+        },
+        {
+          "current_key": "AIzaSyDBJrF3g1ggQjDEeSrDnUvRFvwcfzMi6Rs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "635446374322-ugttknh5foe6rorbqlj8qg31cvn5fv2g.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:635446374322:android:0bed9f85495cda41377eab",
+        "android_client_info": {
+          "package_name": "id.rmolkalut.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "635446374322-rr4gcbpu29mu9sijnatutf5qf1mbn9lb.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "id.rmolkalut.app",
+            "certificate_hash": "4fbc4a18f65745bd14a1670408259ec4769882ba"
+          }
+        },
+        {
+          "client_id": "635446374322-ugttknh5foe6rorbqlj8qg31cvn5fv2g.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA6-9iw8_Vb1nfZ5WvXhfkRLvUkqTe9JWA"
+        },
+        {
+          "current_key": "AIzaSyB75mixn44P7oGpFDLZyvcV9K7Sn8wcDis"
+        },
+        {
+          "current_key": "AIzaSyDBJrF3g1ggQjDEeSrDnUvRFvwcfzMi6Rs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "635446374322-ugttknh5foe6rorbqlj8qg31cvn5fv2g.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:635446374322:android:d0411be69c43063d377eab",
+        "android_client_info": {
+          "package_name": "id.rmolkepri.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "635446374322-b6vcrctrde5iea3tkamhqo900fqim791.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "id.rmolkepri.app",
+            "certificate_hash": "4fbc4a18f65745bd14a1670408259ec4769882ba"
+          }
+        },
+        {
+          "client_id": "635446374322-ugttknh5foe6rorbqlj8qg31cvn5fv2g.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA6-9iw8_Vb1nfZ5WvXhfkRLvUkqTe9JWA"
+        },
+        {
+          "current_key": "AIzaSyB75mixn44P7oGpFDLZyvcV9K7Sn8wcDis"
+        },
+        {
+          "current_key": "AIzaSyDBJrF3g1ggQjDEeSrDnUvRFvwcfzMi6Rs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "635446374322-ugttknh5foe6rorbqlj8qg31cvn5fv2g.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:635446374322:android:1e74aa4e068e4cda377eab",
+        "android_client_info": {
+          "package_name": "id.rmollampung.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "635446374322-rbfgjeu7ltrvv0q4eadfdus6pc7kvhue.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "id.rmollampung.app",
+            "certificate_hash": "4fbc4a18f65745bd14a1670408259ec4769882ba"
+          }
+        },
+        {
+          "client_id": "635446374322-ugttknh5foe6rorbqlj8qg31cvn5fv2g.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA6-9iw8_Vb1nfZ5WvXhfkRLvUkqTe9JWA"
+        },
+        {
+          "current_key": "AIzaSyB75mixn44P7oGpFDLZyvcV9K7Sn8wcDis"
+        },
+        {
+          "current_key": "AIzaSyDBJrF3g1ggQjDEeSrDnUvRFvwcfzMi6Rs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "635446374322-ugttknh5foe6rorbqlj8qg31cvn5fv2g.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:635446374322:android:784dcf177c3e4220377eab",
+        "android_client_info": {
+          "package_name": "id.rmolmaluku.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "635446374322-5819k2ohbjeroicg9v6ggnvi5p21ed3p.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "id.rmolmaluku.app",
+            "certificate_hash": "4fbc4a18f65745bd14a1670408259ec4769882ba"
+          }
+        },
+        {
+          "client_id": "635446374322-ugttknh5foe6rorbqlj8qg31cvn5fv2g.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA6-9iw8_Vb1nfZ5WvXhfkRLvUkqTe9JWA"
+        },
+        {
+          "current_key": "AIzaSyB75mixn44P7oGpFDLZyvcV9K7Sn8wcDis"
+        },
+        {
+          "current_key": "AIzaSyDBJrF3g1ggQjDEeSrDnUvRFvwcfzMi6Rs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "635446374322-ugttknh5foe6rorbqlj8qg31cvn5fv2g.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:635446374322:android:d5f72b969feb30bc377eab",
+        "android_client_info": {
+          "package_name": "id.rmolmalukuutara.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "635446374322-h45caq5rtibgkvm3nsucdshib7an7rp5.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "id.rmolmalukuutara.app",
+            "certificate_hash": "4fbc4a18f65745bd14a1670408259ec4769882ba"
+          }
+        },
+        {
+          "client_id": "635446374322-ugttknh5foe6rorbqlj8qg31cvn5fv2g.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA6-9iw8_Vb1nfZ5WvXhfkRLvUkqTe9JWA"
+        },
+        {
+          "current_key": "AIzaSyB75mixn44P7oGpFDLZyvcV9K7Sn8wcDis"
+        },
+        {
+          "current_key": "AIzaSyDBJrF3g1ggQjDEeSrDnUvRFvwcfzMi6Rs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "635446374322-ugttknh5foe6rorbqlj8qg31cvn5fv2g.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:635446374322:android:acbb8f934d06dc2c377eab",
+        "android_client_info": {
+          "package_name": "id.rmolntb.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "635446374322-3lkle78lolgbdqptrdie4jd49kmrdugq.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "id.rmolntb.app",
+            "certificate_hash": "4fbc4a18f65745bd14a1670408259ec4769882ba"
+          }
+        },
+        {
+          "client_id": "635446374322-ugttknh5foe6rorbqlj8qg31cvn5fv2g.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA6-9iw8_Vb1nfZ5WvXhfkRLvUkqTe9JWA"
+        },
+        {
+          "current_key": "AIzaSyB75mixn44P7oGpFDLZyvcV9K7Sn8wcDis"
+        },
+        {
+          "current_key": "AIzaSyDBJrF3g1ggQjDEeSrDnUvRFvwcfzMi6Rs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "635446374322-ugttknh5foe6rorbqlj8qg31cvn5fv2g.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:635446374322:android:1f727b8c743d344d377eab",
+        "android_client_info": {
+          "package_name": "id.rmolntt.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "635446374322-cesus0kgugaehvof5po0ffsed7kp8do3.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "id.rmolntt.app",
+            "certificate_hash": "4fbc4a18f65745bd14a1670408259ec4769882ba"
+          }
+        },
+        {
+          "client_id": "635446374322-ugttknh5foe6rorbqlj8qg31cvn5fv2g.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA6-9iw8_Vb1nfZ5WvXhfkRLvUkqTe9JWA"
+        },
+        {
+          "current_key": "AIzaSyB75mixn44P7oGpFDLZyvcV9K7Sn8wcDis"
+        },
+        {
+          "current_key": "AIzaSyDBJrF3g1ggQjDEeSrDnUvRFvwcfzMi6Rs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "635446374322-ugttknh5foe6rorbqlj8qg31cvn5fv2g.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:635446374322:android:7c1821c1269d064c377eab",
+        "android_client_info": {
+          "package_name": "id.rmolpapua.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "635446374322-dn4cvfrpsadksnjn8i6irshpgj1co6si.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "id.rmolpapua.app",
+            "certificate_hash": "4fbc4a18f65745bd14a1670408259ec4769882ba"
+          }
+        },
+        {
+          "client_id": "635446374322-ugttknh5foe6rorbqlj8qg31cvn5fv2g.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA6-9iw8_Vb1nfZ5WvXhfkRLvUkqTe9JWA"
+        },
+        {
+          "current_key": "AIzaSyB75mixn44P7oGpFDLZyvcV9K7Sn8wcDis"
+        },
+        {
+          "current_key": "AIzaSyDBJrF3g1ggQjDEeSrDnUvRFvwcfzMi6Rs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "635446374322-ugttknh5foe6rorbqlj8qg31cvn5fv2g.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:635446374322:android:c19fd7f06db19a14377eab",
+        "android_client_info": {
+          "package_name": "id.rmolpapuabarat.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "635446374322-i4ci59umc5g0sl05u74finucpm07r49r.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "id.rmolpapuabarat.app",
+            "certificate_hash": "4fbc4a18f65745bd14a1670408259ec4769882ba"
+          }
+        },
+        {
+          "client_id": "635446374322-ugttknh5foe6rorbqlj8qg31cvn5fv2g.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA6-9iw8_Vb1nfZ5WvXhfkRLvUkqTe9JWA"
+        },
+        {
+          "current_key": "AIzaSyB75mixn44P7oGpFDLZyvcV9K7Sn8wcDis"
+        },
+        {
+          "current_key": "AIzaSyDBJrF3g1ggQjDEeSrDnUvRFvwcfzMi6Rs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "635446374322-ugttknh5foe6rorbqlj8qg31cvn5fv2g.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:635446374322:android:3965aa89335bf71b377eab",
+        "android_client_info": {
+          "package_name": "id.rmolriau.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "635446374322-59u4h7tduo43lvnfd1qtt3mp69b9qt0h.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "id.rmolriau.app",
+            "certificate_hash": "4fbc4a18f65745bd14a1670408259ec4769882ba"
+          }
+        },
+        {
+          "client_id": "635446374322-ugttknh5foe6rorbqlj8qg31cvn5fv2g.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA6-9iw8_Vb1nfZ5WvXhfkRLvUkqTe9JWA"
+        },
+        {
+          "current_key": "AIzaSyB75mixn44P7oGpFDLZyvcV9K7Sn8wcDis"
+        },
+        {
+          "current_key": "AIzaSyDBJrF3g1ggQjDEeSrDnUvRFvwcfzMi6Rs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "635446374322-ugttknh5foe6rorbqlj8qg31cvn5fv2g.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:635446374322:android:a4eb2b345e74fc2a377eab",
+        "android_client_info": {
+          "package_name": "id.rmolsulbar.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "635446374322-8s98gj0vlcvtkmstr8jg83m2fkepmhr6.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "id.rmolsulbar.app",
+            "certificate_hash": "4fbc4a18f65745bd14a1670408259ec4769882ba"
+          }
+        },
+        {
+          "client_id": "635446374322-ugttknh5foe6rorbqlj8qg31cvn5fv2g.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA6-9iw8_Vb1nfZ5WvXhfkRLvUkqTe9JWA"
+        },
+        {
+          "current_key": "AIzaSyB75mixn44P7oGpFDLZyvcV9K7Sn8wcDis"
+        },
+        {
+          "current_key": "AIzaSyDBJrF3g1ggQjDEeSrDnUvRFvwcfzMi6Rs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "635446374322-ugttknh5foe6rorbqlj8qg31cvn5fv2g.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:635446374322:android:4d5555d697363145377eab",
+        "android_client_info": {
+          "package_name": "id.rmolsulsel.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "635446374322-pfv8r0594fohj40ul4uju3g999ottq5k.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "id.rmolsulsel.app",
+            "certificate_hash": "4fbc4a18f65745bd14a1670408259ec4769882ba"
+          }
+        },
+        {
+          "client_id": "635446374322-ugttknh5foe6rorbqlj8qg31cvn5fv2g.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA6-9iw8_Vb1nfZ5WvXhfkRLvUkqTe9JWA"
+        },
+        {
+          "current_key": "AIzaSyB75mixn44P7oGpFDLZyvcV9K7Sn8wcDis"
+        },
+        {
+          "current_key": "AIzaSyDBJrF3g1ggQjDEeSrDnUvRFvwcfzMi6Rs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "635446374322-ugttknh5foe6rorbqlj8qg31cvn5fv2g.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:635446374322:android:b0e17f4e7d286df9377eab",
+        "android_client_info": {
+          "package_name": "id.rmolsulut.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "635446374322-c04do2l5mc2ov2bon83lerbqvbdf4jf1.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "id.rmolsulut.app",
+            "certificate_hash": "4fbc4a18f65745bd14a1670408259ec4769882ba"
+          }
+        },
+        {
+          "client_id": "635446374322-ugttknh5foe6rorbqlj8qg31cvn5fv2g.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA6-9iw8_Vb1nfZ5WvXhfkRLvUkqTe9JWA"
+        },
+        {
+          "current_key": "AIzaSyB75mixn44P7oGpFDLZyvcV9K7Sn8wcDis"
+        },
+        {
+          "current_key": "AIzaSyDBJrF3g1ggQjDEeSrDnUvRFvwcfzMi6Rs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "635446374322-ugttknh5foe6rorbqlj8qg31cvn5fv2g.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:635446374322:android:e8f9a64ef0a83c78377eab",
+        "android_client_info": {
+          "package_name": "id.rmolsumbar.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "635446374322-2joo09uk1k43qgkescdrgn6261e5dtvi.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "id.rmolsumbar.app",
+            "certificate_hash": "4fbc4a18f65745bd14a1670408259ec4769882ba"
+          }
+        },
+        {
+          "client_id": "635446374322-ugttknh5foe6rorbqlj8qg31cvn5fv2g.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA6-9iw8_Vb1nfZ5WvXhfkRLvUkqTe9JWA"
+        },
+        {
+          "current_key": "AIzaSyB75mixn44P7oGpFDLZyvcV9K7Sn8wcDis"
+        },
+        {
+          "current_key": "AIzaSyDBJrF3g1ggQjDEeSrDnUvRFvwcfzMi6Rs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "635446374322-ugttknh5foe6rorbqlj8qg31cvn5fv2g.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:635446374322:android:097c204a123cc845377eab",
+        "android_client_info": {
+          "package_name": "id.rmolsumsel.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "635446374322-sedl7skm5u2in8k2iic9p8d62nq9upam.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "id.rmolsumsel.app",
+            "certificate_hash": "4fbc4a18f65745bd14a1670408259ec4769882ba"
+          }
+        },
+        {
+          "client_id": "635446374322-ugttknh5foe6rorbqlj8qg31cvn5fv2g.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA6-9iw8_Vb1nfZ5WvXhfkRLvUkqTe9JWA"
+        },
+        {
+          "current_key": "AIzaSyB75mixn44P7oGpFDLZyvcV9K7Sn8wcDis"
+        },
+        {
+          "current_key": "AIzaSyDBJrF3g1ggQjDEeSrDnUvRFvwcfzMi6Rs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "635446374322-ugttknh5foe6rorbqlj8qg31cvn5fv2g.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:635446374322:android:810018897a35c32f377eab",
+        "android_client_info": {
+          "package_name": "id.rmolsumut.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "635446374322-mkut81kf9ncm3epfns8tl025v5mkqoth.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "id.rmolsumut.app",
+            "certificate_hash": "1e9956e30a47a842a9c05064bffdc1e7d8430e6f"
+          }
+        },
+        {
+          "client_id": "635446374322-j49gubppp4rrlvoaot86rvkeuqkrob53.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "id.rmolsumut.app",
+            "certificate_hash": "4fbc4a18f65745bd14a1670408259ec4769882ba"
+          }
+        },
+        {
+          "client_id": "635446374322-ugttknh5foe6rorbqlj8qg31cvn5fv2g.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA6-9iw8_Vb1nfZ5WvXhfkRLvUkqTe9JWA"
+        },
+        {
+          "current_key": "AIzaSyB75mixn44P7oGpFDLZyvcV9K7Sn8wcDis"
+        },
+        {
+          "current_key": "AIzaSyDBJrF3g1ggQjDEeSrDnUvRFvwcfzMi6Rs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "635446374322-ugttknh5foe6rorbqlj8qg31cvn5fv2g.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

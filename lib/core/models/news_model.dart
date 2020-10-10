@@ -4,6 +4,10 @@ List<NewsModel> newsModelFromJson(String str) => List<NewsModel>.from(json.decod
 
 String newsModelToJson(List<NewsModel> data) => json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
 
+NewsModel newsDetailFromJson(String str) => NewsModel.fromJson(json.decode(str));
+
+String newsDetailToJson(NewsModel data) => json.encode(data.toJson());
+
 class NewsModel {
     NewsModel({
         this.content,
