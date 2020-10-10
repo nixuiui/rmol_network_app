@@ -45,9 +45,9 @@ class _AboutTabState extends State<AboutTab> {
       child: Scaffold(
         body: SafeArea(
           child: Container(
-            padding: EdgeInsets.all(24),
             width: MediaQuery.of(context).size.width,
             child: ListView(
+              padding: EdgeInsets.all(24),
               children: <Widget>[
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
