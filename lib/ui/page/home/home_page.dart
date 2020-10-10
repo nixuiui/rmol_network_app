@@ -198,7 +198,7 @@ class _HomePageState extends State<HomePage> {
                         children: [
                           SvgPicture.asset("assets/upgrade.svg", width: 130),
                           Text(
-                            "Aplikasi RMOL JATIM Telah Update di Playstore!!",
+                            "Aplikasi RMOL JABAR Telah Update di Playstore!!",
                             textAlign: TextAlign.center,
                           ),
                           Container(

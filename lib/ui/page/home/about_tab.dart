@@ -115,7 +115,7 @@ class _AboutTabState extends State<AboutTab> {
                               color: Colors.black87,
                               fontWeight: FontWeight.w600
                             )),
-                            onTap: () => _launchURL("https://www.rmoljatim.id/"),
+                            onTap: () => _launchURL("https://www.rmoljabar.id/"),
                           ),
                           Divider(),
                           Container(
