@@ -307,7 +307,7 @@ class _HomePageState extends State<HomePage> {
   FirebaseMessaging _firebaseMessaging = FirebaseMessaging();
   setFCM() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    _firebaseMessaging.subscribeToTopic("rmoljatim_public");
+    _firebaseMessaging.subscribeToTopic("rmollampung_public");
     _firebaseMessaging.requestNotificationPermissions(
       const IosNotificationSettings(sound: true, badge: true, alert: true, provisional: true)
     );
