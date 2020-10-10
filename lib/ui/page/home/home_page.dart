@@ -206,7 +206,7 @@ class _HomePageState extends State<HomePage> {
                         children: [
                           SvgPicture.asset("assets/upgrade.svg", width: 130),
                           Text(
-                            "Aplikasi RMOL JATIM Telah Update di Playstore!!",
+                            "Aplikasi RMOL PAPUA Telah Update di Playstore!!",
                             textAlign: TextAlign.center,
                           ),
                           Container(
@@ -307,7 +307,7 @@ class _HomePageState extends State<HomePage> {
   FirebaseMessaging _firebaseMessaging = FirebaseMessaging();
   setFCM() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    _firebaseMessaging.subscribeToTopic("rmoljatim_public");
+    _firebaseMessaging.subscribeToTopic("rmolpapua_public");
     _firebaseMessaging.requestNotificationPermissions(
       const IosNotificationSettings(sound: true, badge: true, alert: true, provisional: true)
     );
