@@ -43,7 +43,6 @@ class _SplashScreenState extends State<SplashScreen> {
     FirebaseMessaging _firebaseMessaging = FirebaseMessaging();
     _firebaseMessaging.configure(
       onLaunch: (Map<String, dynamic> message) async {
-        Toast.show("NOTIF", context);
         setState(() {
           isNotifClicked = true;
         });
