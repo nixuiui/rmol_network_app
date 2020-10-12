@@ -84,6 +84,7 @@ class _NewsDetailState extends State<NewsDetail> {
             else if(state is NewsDetailLoaded) {
               setState(() {
                 newsDetail = state.data;
+                isStarting = false;
                 bloc.add(LoadNews(type: "news", perPage: 5, page: 1));
               });
             }
@@ -138,7 +139,7 @@ class _NewsDetailState extends State<NewsDetail> {
                               borderRadius: BorderRadius.circular(50),
                               image: DecorationImage(
                                 fit: BoxFit.cover,
-                                image: NetworkImage("http://rmoljatim.id/assets/img/user.png"),
+                                image: AssetImage("assets/user.png"),
                               ),
                             ),
                           ),
