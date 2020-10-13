@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:firebase_admob/firebase_admob.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -17,6 +18,7 @@ import 'package:rmol_network_app/core/models/ads_model.dart';
 import 'package:rmol_network_app/core/models/category_model.dart';
 import 'package:rmol_network_app/core/models/general_info.dart';
 import 'package:rmol_network_app/core/models/news_model.dart';
+import 'package:rmol_network_app/helper/ad_manager.dart';
 import 'package:rmol_network_app/helper/notification_handler.dart';
 import 'package:rmol_network_app/ui/page/home/about_tab.dart';
 import 'package:rmol_network_app/ui/page/home/category_tab.dart';
@@ -66,6 +68,7 @@ class _HomePageState extends State<HomePage> {
   @override
   void initState() {
     setFCM();
+    setAd();
     initLocalNotification();
     scrollController.addListener(_onScroll);
     _layoutPage = [
@@ -79,6 +82,12 @@ class _HomePageState extends State<HomePage> {
     generalBloc.add(CheckUpdate());
     appInfoBloc.add(LoadGeneralInfo());
     super.initState();
+  }
+
+  @override
+  void dispose() {
+    _interstitialAd?.dispose();
+    super.dispose();
   }
 
   CategoryTab setCategoryTab() {
@@ -135,7 +144,6 @@ class _HomePageState extends State<HomePage> {
             if(state is HomeNewsLoaded) {
               homeRefreshController.refreshCompleted();
               setState(() {
-                homeStarting = false;
                 if(state.indoNews != null) {
                   indonesianNewsList = state.indoNews.indoNews;
                   popularPosts = state.indoNews.popularweek;
@@ -307,17 +315,18 @@ class _HomePageState extends State<HomePage> {
   FirebaseMessaging _firebaseMessaging = FirebaseMessaging();
   setFCM() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    _firebaseMessaging.subscribeToTopic("rmolpapua_public");
+    
+    var subscribeNotif = prefs.getString("subscribeNotif");
+    if(subscribeNotif == null || subscribeNotif == "subscribed")
+      _firebaseMessaging.subscribeToTopic("rmolpapua_public");
+    else 
+      _firebaseMessaging.unsubscribeFromTopic("rmolpapua_public");
+    
     _firebaseMessaging.requestNotificationPermissions(
       const IosNotificationSettings(sound: true, badge: true, alert: true, provisional: true)
     );
     _firebaseMessaging.onIosSettingsRegistered.listen((IosNotificationSettings settings) {
       print("Settings registered: $settings");
-    });
-    _firebaseMessaging.getToken().then((String token) {
-      assert(token != null);
-      print("TOKEN: $token");
-      prefs.setString("fcmToken", token);
     });
 
     _firebaseMessaging.configure(
@@ -396,5 +405,39 @@ class _HomePageState extends State<HomePage> {
     await Navigator.push(context, new MaterialPageRoute(
       builder: (context) => pageDirectionFromNotification(split[0], split[1]))
     );
+  }
+
+  static const MobileAdTargetingInfo targetingInfo = MobileAdTargetingInfo(
+    testDevices: null,
+    keywords: <String>['foo', 'bar'],
+    contentUrl: 'http://foo.com/bar.html',
+    childDirected: true,
+    nonPersonalizedAds: true,
+  );
+
+  InterstitialAd _interstitialAd;
+  InterstitialAd createInterstitialAd() {
+    return InterstitialAd(
+      adUnitId: AdManager.interstitialAdUnitId,
+      targetingInfo: targetingInfo,
+      listener: (MobileAdEvent event) {
+        print("InterstitialAd event $event");
+      },
+    );
+  }
+  
+  setAd() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    var count = prefs.getInt("count");
+    if(count == null) {
+      prefs.setInt("count", 20);
+    }
+    else {
+      if(count > 0) prefs.setInt("count", count-1);
+      else {
+        prefs.setInt("count", 20);
+        _interstitialAd = createInterstitialAd()..load()..show();
+      }
+    }
   }
 }

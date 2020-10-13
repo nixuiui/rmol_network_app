@@ -66,18 +66,18 @@ class Content {
     String titleSlug;
     String summary;
     String content;
-    int categoryId;
+    String categoryId;
     String imageBig;
     String imageSlider;
     String imageMid;
     String imageSmall;
     String imageMime;
-    int sliderOrder;
-    int featuredOrder;
+    String sliderOrder;
+    String featuredOrder;
     String postType;
     String imageUrl;
-    int userId;
-    int pageviews;
+    String userId;
+    String pageviews;
     DateTime createdAt;
     String postUrl;
     String imageDescription;
@@ -88,39 +88,39 @@ class Content {
     String authorSlug;
     String editorUsername;
     String editorSlug;
-    int commentCount;
-    int hideReport;
+    String commentCount;
+    String hideReport;
 
     factory Content.fromJson(Map<String, dynamic> json) => Content(
         id: json["id"],
-        title: json["title"],
-        titleSlug: json["title_slug"],
-        summary: json["summary"],
-        content: json["content"],
-        categoryId: json["category_id"],
-        imageBig: json["image_big"],
-        imageSlider: json["image_slider"],
-        imageMid: json["image_mid"],
-        imageSmall: json["image_small"],
-        imageMime: json["image_mime"],
-        sliderOrder: json["slider_order"],
-        featuredOrder: json["featured_order"],
-        postType: json["post_type"],
-        imageUrl: json["image_url"],
-        userId: json["user_id"],
-        pageviews: json["pageviews"],
+        title: json["title"].toString(),
+        titleSlug: json["title_slug"].toString(),
+        summary: json["summary"].toString(),
+        content: json["content"].toString(),
+        categoryId: json["category_id"].toString(),
+        imageBig: json["image_big"].toString(),
+        imageSlider: json["image_slider"].toString(),
+        imageMid: json["image_mid"].toString(),
+        imageSmall: json["image_small"].toString(),
+        imageMime: json["image_mime"].toString(),
+        sliderOrder: json["slider_order"].toString(),
+        featuredOrder: json["featured_order"].toString(),
+        postType: json["post_type"].toString(),
+        imageUrl: json["image_url"].toString(),
+        userId: json["user_id"].toString(),
+        pageviews: json["pageviews"].toString(),
         createdAt: DateTime.parse(json["created_at"]),
-        postUrl: json["post_url"],
-        imageDescription: json["image_description"],
-        categoryName: json["category_name"],
-        categorySlug: json["category_slug"],
-        categoryColor: json["category_color"],
-        authorUsername: json["author_username"],
-        authorSlug: json["author_slug"],
-        editorUsername: json["editor_username"],
-        editorSlug: json["editor_slug"],
-        commentCount: json["comment_count"],
-        hideReport: json["hide_report"],
+        postUrl: json["post_url"].toString(),
+        imageDescription: json["image_description"].toString(),
+        categoryName: json["category_name"].toString(),
+        categorySlug: json["category_slug"].toString(),
+        categoryColor: json["category_color"].toString(),
+        authorUsername: json["author_username"].toString(),
+        authorSlug: json["author_slug"].toString(),
+        editorUsername: json["editor_username"].toString(),
+        editorSlug: json["editor_slug"].toString(),
+        commentCount: json["comment_count"].toString(),
+        hideReport: json["hide_report"].toString(),
     );
 
     Map<String, dynamic> toJson() => {
@@ -164,16 +164,16 @@ class Tag {
         this.tagSlug,
     });
 
-    int id;
-    int postId;
+    String id;
+    String postId;
     String tag;
     String tagSlug;
 
     factory Tag.fromJson(Map<String, dynamic> json) => Tag(
-        id: json["id"],
-        postId: json["post_id"],
-        tag: json["tag"],
-        tagSlug: json["tag_slug"],
+        id: json["id"].toString(),
+        postId: json["post_id"].toString(),
+        tag: json["tag"].toString(),
+        tagSlug: json["tag_slug"].toString(),
     );
 
     Map<String, dynamic> toJson() => {
