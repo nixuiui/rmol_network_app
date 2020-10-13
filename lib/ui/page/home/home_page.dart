@@ -306,17 +306,18 @@ class _HomePageState extends State<HomePage> {
   FirebaseMessaging _firebaseMessaging = FirebaseMessaging();
   setFCM() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    _firebaseMessaging.subscribeToTopic("rmoljatim_public");
+    
+    var subscribeNotif = prefs.getString("subscribeNotif");
+    if(subscribeNotif == null || subscribeNotif == "subscribed")
+      _firebaseMessaging.subscribeToTopic("rmoljatim_public");
+    else 
+      _firebaseMessaging.unsubscribeFromTopic("rmoljatim_public");
+    
     _firebaseMessaging.requestNotificationPermissions(
       const IosNotificationSettings(sound: true, badge: true, alert: true, provisional: true)
     );
     _firebaseMessaging.onIosSettingsRegistered.listen((IosNotificationSettings settings) {
       print("Settings registered: $settings");
-    });
-    _firebaseMessaging.getToken().then((String token) {
-      assert(token != null);
-      print("TOKEN: $token");
-      prefs.setString("fcmToken", token);
     });
 
     _firebaseMessaging.configure(
