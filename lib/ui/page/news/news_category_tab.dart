@@ -1,3 +1,4 @@
+import 'package:firebase_admob/firebase_admob.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:pull_to_refresh/pull_to_refresh.dart';
@@ -6,10 +7,12 @@ import 'package:rmol_network_app/core/bloc/news/news_event.dart';
 import 'package:rmol_network_app/core/bloc/news/news_state.dart';
 import 'package:rmol_network_app/core/models/category_model.dart';
 import 'package:rmol_network_app/core/models/news_model.dart';
+import 'package:rmol_network_app/helper/ad_manager.dart';
 import 'package:rmol_network_app/helper/app_color.dart';
 import 'package:rmol_network_app/helper/app_general_widget.dart';
 import 'package:rmol_network_app/ui/page/news/news_detail.dart';
 import 'package:rmol_network_app/ui/widget/news_item.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class NewsCategoryTab extends StatefulWidget {
   const NewsCategoryTab({
@@ -31,8 +34,15 @@ class _NewsCategoryTabState extends State<NewsCategoryTab> {
 
   @override
   void initState() {
+    setAd();
     initialIndex = widget.categories.indexWhere((item) => item.id == widget.categorySelected.id);
     super.initState();
+  }
+
+  @override
+  void dispose() {
+    _interstitialAd?.dispose();
+    super.dispose();
   }
 
   @override
@@ -67,6 +77,43 @@ class _NewsCategoryTabState extends State<NewsCategoryTab> {
         )
       ],
     );
+  }
+
+
+
+  // ADMOB
+  static const MobileAdTargetingInfo targetingInfo = MobileAdTargetingInfo(
+    testDevices: null,
+    keywords: <String>['foo', 'bar'],
+    contentUrl: 'http://foo.com/bar.html',
+    childDirected: true,
+    nonPersonalizedAds: true,
+  );
+
+  InterstitialAd _interstitialAd;
+  InterstitialAd createInterstitialAd() {
+    return InterstitialAd(
+      adUnitId: AdManager.interstitialAdUnitId,
+      targetingInfo: targetingInfo,
+      listener: (MobileAdEvent event) {
+        print("InterstitialAd event $event");
+      },
+    );
+  }
+  
+  setAd() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    var count = prefs.getInt("count");
+    if(count == null) {
+      prefs.setInt("count", 20);
+    }
+    else {
+      if(count > 0) prefs.setInt("count", count-1);
+      else {
+        prefs.setInt("count", 20);
+        _interstitialAd = createInterstitialAd()..load()..show();
+      }
+    }
   }
 }
 
@@ -186,4 +233,5 @@ class _NewsListState extends State<NewsList> {
       });
     }
   }
+
 }
