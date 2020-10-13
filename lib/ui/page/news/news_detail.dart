@@ -22,6 +22,7 @@ import 'package:rmol_network_app/ui/page/news/news_list_page.dart';
 import 'package:rmol_network_app/ui/widget/box.dart';
 import 'package:rmol_network_app/ui/widget/header_for_list.dart';
 import 'package:rmol_network_app/ui/widget/news_item.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:shimmer/shimmer.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -73,6 +74,17 @@ class _NewsDetailState extends State<NewsDetail> {
     );
   }
 
+  InterstitialAd _interstitialAd;
+  InterstitialAd createInterstitialAd() {
+    return InterstitialAd(
+      adUnitId: AdManager.interstitialAdUnitId,
+      targetingInfo: targetingInfo,
+      listener: (MobileAdEvent event) {
+        print("InterstitialAd event $event");
+      },
+    );
+  }
+
   @override
   void initState() {
     if(widget.news != null) {
@@ -82,7 +94,7 @@ class _NewsDetailState extends State<NewsDetail> {
     if(widget.id != null) {
       bloc.add(LoadNewsDetail(id: widget.id));
     }
-    _bannerAd = createBannerAd()..load()..show();
+    setAd();
     adsBloc.add(LoadAds());
     initializeDateFormatting();
     formatDate = DateFormat.yMMMMEEEEd("id").add_Hm();
@@ -93,6 +105,7 @@ class _NewsDetailState extends State<NewsDetail> {
   @override
   void dispose() {
     _bannerAd?.dispose();
+    _interstitialAd?.dispose();
     super.dispose();
   }
 
@@ -470,5 +483,21 @@ class _NewsDetailState extends State<NewsDetail> {
       }
       favoritBloc.add(UpdateFavorite(favorits: favorits));
     });
+  }
+
+  setAd() async {
+    _bannerAd = createBannerAd()..load()..show();
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    var count = prefs.getInt("count");
+    if(count == null) {
+      prefs.setInt("count", 10);
+    }
+    else {
+      if(count > 0) prefs.setInt("count", count-1);
+      else {
+        prefs.setInt("count", 10);
+        _interstitialAd = createInterstitialAd()..load()..show();
+      }
+    }
   }
 }
