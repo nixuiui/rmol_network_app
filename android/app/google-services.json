@@ -182,6 +182,35 @@
     },
     {
       "client_info": {
+        "mobilesdk_app_id": "1:890230143105:android:31cd179354788a5c98b580",
+        "android_client_info": {
+          "package_name": "id.rmoldkijakarta.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "890230143105-u3cshordiei0e2qj5suq7s57ephn7g4v.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA6qmiz1h7TC9f-eoawB-Ix4_x-DsehiCI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "890230143105-u3cshordiei0e2qj5suq7s57ephn7g4v.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
         "mobilesdk_app_id": "1:890230143105:android:132206954f7a790a98b580",
         "android_client_info": {
           "package_name": "id.rmolgorontalo.app"
@@ -301,35 +330,6 @@
         "mobilesdk_app_id": "1:890230143105:android:e2debebd69ecd40a98b580",
         "android_client_info": {
           "package_name": "id.rmoljatim.app"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "890230143105-u3cshordiei0e2qj5suq7s57ephn7g4v.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyA6qmiz1h7TC9f-eoawB-Ix4_x-DsehiCI"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "890230143105-u3cshordiei0e2qj5suq7s57ephn7g4v.apps.googleusercontent.com",
-              "client_type": 3
-            }
-          ]
-        }
-      }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:890230143105:android:db542ddbb35cadbc98b580",
-        "android_client_info": {
-          "package_name": "id.rmoljkt.app"
         }
       },
       "oauth_client": [
