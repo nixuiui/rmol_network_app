@@ -490,12 +490,12 @@ class _NewsDetailState extends State<NewsDetail> {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     var count = prefs.getInt("count");
     if(count == null) {
-      prefs.setInt("count", 10);
+      prefs.setInt("count", 20);
     }
     else {
       if(count > 0) prefs.setInt("count", count-1);
       else {
-        prefs.setInt("count", 10);
+        prefs.setInt("count", 20);
         _interstitialAd = createInterstitialAd()..load()..show();
       }
     }
