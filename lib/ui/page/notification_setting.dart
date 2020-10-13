@@ -14,6 +14,12 @@ class _SettingPageState extends State<SettingPage> {
   bool notificationActive = false;
 
   @override
+  void initState() {
+    checkNotification();
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
@@ -63,6 +69,14 @@ class _SettingPageState extends State<SettingPage> {
       _firebaseMessaging.unsubscribeFromTopic("rmollampung_public");
       print("unsubscribed");
     }
+  }
+  
+  checkNotification() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    var subscribeNotif = prefs.getString("subscribeNotif");
+    setState(() {
+      notificationActive = subscribeNotif == null || subscribeNotif == "subscribed";
+    });
   }
 
 }
