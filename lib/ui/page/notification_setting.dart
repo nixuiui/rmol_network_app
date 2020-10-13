@@ -61,12 +61,12 @@ class _SettingPageState extends State<SettingPage> {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     if(isActive) {
       prefs.setString("subscribeNotif", "subscribed");
-      _firebaseMessaging.subscribeToTopic("rmoljatim_public");
+      _firebaseMessaging.subscribeToTopic("rmoljabar_public");
       print("subscribed");
     }
     else {
       prefs.setString("subscribeNotif", "unsubscribed");
-      _firebaseMessaging.unsubscribeFromTopic("rmoljatim_public");
+      _firebaseMessaging.unsubscribeFromTopic("rmoljabar_public");
       print("unsubscribed");
     }
   }
