@@ -26,6 +26,7 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
+    setFirebase();
     bloc.add(LoadGeneralInfo(refresh: true));
     _getAppInfo();
   }

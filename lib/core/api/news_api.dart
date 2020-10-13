@@ -56,7 +56,7 @@ class NewsApi extends MainApi {
   
   Future<NewsModel> loadNewsDetail(String id) async {
     try {
-      final response = await getRequest(url: "$host/news/$id");
+      final response = await getRequest(url: "$host/news_byid?id=$id");
       return newsDetailFromJson(response);
     } catch (error) {
       throw Exception(error);

@@ -1,4 +1,5 @@
 import 'package:esys_flutter_share/esys_flutter_share.dart';
+import 'package:firebase_admob/firebase_admob.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -15,11 +16,13 @@ import 'package:rmol_network_app/core/bloc/news/news_event.dart';
 import 'package:rmol_network_app/core/bloc/news/news_state.dart';
 import 'package:rmol_network_app/core/models/ads_model.dart';
 import 'package:rmol_network_app/core/models/news_model.dart';
+import 'package:rmol_network_app/helper/ad_manager.dart';
 import 'package:rmol_network_app/helper/app_general_widget.dart';
 import 'package:rmol_network_app/ui/page/news/news_list_page.dart';
 import 'package:rmol_network_app/ui/widget/box.dart';
 import 'package:rmol_network_app/ui/widget/header_for_list.dart';
 import 'package:rmol_network_app/ui/widget/news_item.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:shimmer/shimmer.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -51,6 +54,37 @@ class _NewsDetailState extends State<NewsDetail> {
   final adsBloc = GeneralBloc();
   AdsModel ads;
 
+  static const MobileAdTargetingInfo targetingInfo = MobileAdTargetingInfo(
+    testDevices: null,
+    keywords: <String>['foo', 'bar'],
+    contentUrl: 'http://foo.com/bar.html',
+    childDirected: true,
+    nonPersonalizedAds: true,
+  );
+
+  BannerAd _bannerAd;
+  BannerAd createBannerAd() {
+    return BannerAd(
+      adUnitId: AdManager.bannerAdUnitId,
+      size: AdSize.banner,
+      targetingInfo: targetingInfo,
+      listener: (MobileAdEvent event) {
+        print("BannerAd event $event");
+      },
+    );
+  }
+
+  InterstitialAd _interstitialAd;
+  InterstitialAd createInterstitialAd() {
+    return InterstitialAd(
+      adUnitId: AdManager.interstitialAdUnitId,
+      targetingInfo: targetingInfo,
+      listener: (MobileAdEvent event) {
+        print("InterstitialAd event $event");
+      },
+    );
+  }
+
   @override
   void initState() {
     if(widget.news != null) {
@@ -60,12 +94,19 @@ class _NewsDetailState extends State<NewsDetail> {
     if(widget.id != null) {
       bloc.add(LoadNewsDetail(id: widget.id));
     }
-
+    setAd();
     adsBloc.add(LoadAds());
     initializeDateFormatting();
     formatDate = DateFormat.yMMMMEEEEd("id").add_Hm();
     favoritBloc.add(LoadFavorits());
     super.initState();
+  }
+
+  @override
+  void dispose() {
+    _bannerAd?.dispose();
+    _interstitialAd?.dispose();
+    super.dispose();
   }
 
   @override
@@ -84,6 +125,7 @@ class _NewsDetailState extends State<NewsDetail> {
             else if(state is NewsDetailLoaded) {
               setState(() {
                 newsDetail = state.data;
+                isStarting = false;
                 bloc.add(LoadNews(type: "news", perPage: 5, page: 1));
               });
             }
@@ -138,7 +180,7 @@ class _NewsDetailState extends State<NewsDetail> {
                               borderRadius: BorderRadius.circular(50),
                               image: DecorationImage(
                                 fit: BoxFit.cover,
-                                image: NetworkImage("http://rmoljabar.id/assets/img/user.png"),
+                                image: AssetImage("assets/user.png"),
                               ),
                             ),
                           ),
@@ -146,7 +188,7 @@ class _NewsDetailState extends State<NewsDetail> {
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: <Widget>[
-                                Text(newsDetail?.content?.hideReport == 1 ? "Oleh" : "Laporan", style: TextStyle(
+                                Text(newsDetail?.content?.hideReport == "1" ? "Oleh" : "Laporan", style: TextStyle(
                                   color: Colors.grey[700],
                                   fontSize: 11
                                 )),
@@ -371,7 +413,8 @@ class _NewsDetailState extends State<NewsDetail> {
                           )
                         );
                       }
-                    ) : ShimmerNewsVerticalItem()
+                    ) : ShimmerNewsVerticalItem(),
+                    SizedBox(height: 128)
                   ],
                 ),
               ) : Shimmer.fromColors(
@@ -440,5 +483,21 @@ class _NewsDetailState extends State<NewsDetail> {
       }
       favoritBloc.add(UpdateFavorite(favorits: favorits));
     });
+  }
+
+  setAd() async {
+    _bannerAd = createBannerAd()..load()..show();
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    var count = prefs.getInt("count");
+    if(count == null) {
+      prefs.setInt("count", 20);
+    }
+    else {
+      if(count > 0) prefs.setInt("count", count-1);
+      else {
+        prefs.setInt("count", 20);
+        _interstitialAd = createInterstitialAd()..load()..show();
+      }
+    }
   }
 }
