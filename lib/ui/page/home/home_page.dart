@@ -1,5 +1,6 @@
 import 'dart:io';
 
+import 'package:firebase_admob/firebase_admob.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -17,6 +18,7 @@ import 'package:rmol_network_app/core/models/ads_model.dart';
 import 'package:rmol_network_app/core/models/category_model.dart';
 import 'package:rmol_network_app/core/models/general_info.dart';
 import 'package:rmol_network_app/core/models/news_model.dart';
+import 'package:rmol_network_app/helper/ad_manager.dart';
 import 'package:rmol_network_app/helper/notification_handler.dart';
 import 'package:rmol_network_app/ui/page/home/about_tab.dart';
 import 'package:rmol_network_app/ui/page/home/category_tab.dart';
@@ -123,6 +125,10 @@ class _HomePageState extends State<HomePage> {
       _layoutPage[1] = setCategoryTab();
     });
     categoryBloc.add(LoadCategories(refresh: true));
+  }
+
+  Future<void> _initAdMob() {
+    return FirebaseAdMob.instance.initialize(appId: AdManager.appId);
   }
   
   @override

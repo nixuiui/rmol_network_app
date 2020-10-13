@@ -9,7 +9,6 @@ import 'package:rmol_network_app/core/bloc/general/general_event.dart';
 import 'package:rmol_network_app/core/bloc/general/general_state.dart';
 import 'package:rmol_network_app/core/models/general_info.dart';
 import 'package:rmol_network_app/helper/notification_handler.dart';
-import 'package:toast/toast.dart';
 
 class SplashScreen extends StatefulWidget {
   @override
