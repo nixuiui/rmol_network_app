@@ -1,4 +1,5 @@
 import 'package:esys_flutter_share/esys_flutter_share.dart';
+import 'package:firebase_admob/firebase_admob.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -15,6 +16,7 @@ import 'package:rmol_network_app/core/bloc/news/news_event.dart';
 import 'package:rmol_network_app/core/bloc/news/news_state.dart';
 import 'package:rmol_network_app/core/models/ads_model.dart';
 import 'package:rmol_network_app/core/models/news_model.dart';
+import 'package:rmol_network_app/helper/ad_manager.dart';
 import 'package:rmol_network_app/helper/app_general_widget.dart';
 import 'package:rmol_network_app/ui/page/news/news_list_page.dart';
 import 'package:rmol_network_app/ui/widget/box.dart';
@@ -51,6 +53,26 @@ class _NewsDetailState extends State<NewsDetail> {
   final adsBloc = GeneralBloc();
   AdsModel ads;
 
+  static const MobileAdTargetingInfo targetingInfo = MobileAdTargetingInfo(
+    testDevices: null,
+    keywords: <String>['foo', 'bar'],
+    contentUrl: 'http://foo.com/bar.html',
+    childDirected: true,
+    nonPersonalizedAds: true,
+  );
+
+  BannerAd _bannerAd;
+  BannerAd createBannerAd() {
+    return BannerAd(
+      adUnitId: AdManager.bannerAdUnitId,
+      size: AdSize.banner,
+      targetingInfo: targetingInfo,
+      listener: (MobileAdEvent event) {
+        print("BannerAd event $event");
+      },
+    );
+  }
+
   @override
   void initState() {
     if(widget.news != null) {
@@ -60,12 +82,18 @@ class _NewsDetailState extends State<NewsDetail> {
     if(widget.id != null) {
       bloc.add(LoadNewsDetail(id: widget.id));
     }
-
+    _bannerAd = createBannerAd()..load()..show();
     adsBloc.add(LoadAds());
     initializeDateFormatting();
     formatDate = DateFormat.yMMMMEEEEd("id").add_Hm();
     favoritBloc.add(LoadFavorits());
     super.initState();
+  }
+
+  @override
+  void dispose() {
+    _bannerAd?.dispose();
+    super.dispose();
   }
 
   @override
@@ -147,7 +175,7 @@ class _NewsDetailState extends State<NewsDetail> {
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: <Widget>[
-                                Text(newsDetail?.content?.hideReport == 1 ? "Oleh" : "Laporan", style: TextStyle(
+                                Text(newsDetail?.content?.hideReport == "1" ? "Oleh" : "Laporan", style: TextStyle(
                                   color: Colors.grey[700],
                                   fontSize: 11
                                 )),
@@ -372,7 +400,8 @@ class _NewsDetailState extends State<NewsDetail> {
                           )
                         );
                       }
-                    ) : ShimmerNewsVerticalItem()
+                    ) : ShimmerNewsVerticalItem(),
+                    SizedBox(height: 128)
                   ],
                 ),
               ) : Shimmer.fromColors(
