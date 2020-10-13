@@ -6,6 +6,7 @@ import 'package:rmol_network_app/core/bloc/general/general_event.dart';
 import 'package:rmol_network_app/core/bloc/general/general_state.dart';
 import 'package:rmol_network_app/core/models/general_info.dart';
 import 'package:rmol_network_app/ui/page/info_page.dart';
+import 'package:rmol_network_app/ui/page/notification_setting.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class AboutTab extends StatefulWidget {
@@ -116,6 +117,17 @@ class _AboutTabState extends State<AboutTab> {
                               fontWeight: FontWeight.w600
                             )),
                             onTap: () => _launchURL("https://www.rmolsumut.id/"),
+                          ),
+                          Divider(),
+                          ListTile(
+                            leading: Icon(Icons.settings, color: Color(0xff15afff)),
+                            title: Text("Pengaturan", style: TextStyle(
+                              color: Colors.black87,
+                              fontWeight: FontWeight.w600
+                            )),
+                            onTap: () => Navigator.push(context, MaterialPageRoute(
+                              builder: (context) => SettingPage()
+                            )),
                           ),
                           Divider(),
                           Container(
