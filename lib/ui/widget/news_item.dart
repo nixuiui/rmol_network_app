@@ -139,6 +139,7 @@ class NewsHorizontalItem extends StatelessWidget {
           mainAxisSize: MainAxisSize.max,
           children: <Widget>[
             news?.content?.imageBig != null ? Container(
+              margin: EdgeInsets.only(bottom: 8),
               child: AspectRatio(
                 aspectRatio: 340/195,
                 child: Container(

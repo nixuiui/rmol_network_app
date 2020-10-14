@@ -141,7 +141,7 @@ class Content {
         "image_url": imageUrl,
         "user_id": userId,
         "pageviews": pageviews,
-        "created_at": createdAt.toIso8601String(),
+        "created_at": createdAt?.toIso8601String(),
         "post_url": postUrl,
         "image_description": imageDescription,
         "category_name": categoryName,
@@ -236,7 +236,7 @@ class IndonesianNews {
         "title": title,
         "title_slug": titleSlug,
         "post_url": postUrl,
-        "created_at": createdAt.toIso8601String(),
+        "created_at": createdAt?.toIso8601String(),
         "username": username,
     };
 }
