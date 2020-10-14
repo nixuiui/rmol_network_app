@@ -10,7 +10,7 @@
     <uses-permission android:name="android.permission.VIBRATE" />
     <application
         android:name=".Application"
-        android:label="RMOL JATIM"
+        android:label="RMOL JAKARTA"
         android:icon="@mipmap/launcher_icon">
         <activity
             android:name=".MainActivity"
