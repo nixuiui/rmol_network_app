@@ -125,8 +125,8 @@ class _HomeTabState extends State<HomeTab> {
                 )
               ) : ShimmerNewsTitleOnlyItem()
             ),
-            HeaderForListWidget(title: "Terpopuler", page: null),
-            Container(
+            !widget.isStarting && widget.popularPosts.length == 0 ? Container() : HeaderForListWidget(title: "Terpopuler", page: null),
+            !widget.isStarting && widget.popularPosts.length == 0 ? Container() : Container(
               height: 235,
               child: ListView.separated(
                 shrinkWrap: true,
@@ -144,8 +144,8 @@ class _HomeTabState extends State<HomeTab> {
                 ) : ShimmerNewsHorizontalItem()
               ),
             ),
-            HeaderForListWidget(title: "Footnote", page: null),
-            Container(
+            !widget.isStarting && widget.footnotes.length == 0 ? Container() : HeaderForListWidget(title: "Footnote", page: null),
+            !widget.isStarting && widget.footnotes.length == 0 ? Container() : Container(
               height: 235,
               child: ListView.separated(
                 shrinkWrap: true,
@@ -163,8 +163,8 @@ class _HomeTabState extends State<HomeTab> {
                 ) : ShimmerNewsHorizontalItem()
               ),
             ),
-            HeaderForListWidget(title: "Opini", page: null),
-            Container(
+            !widget.isStarting && widget.opinies.length == 0 ? Container() : HeaderForListWidget(title: "Opini", page: null),
+            !widget.isStarting && widget.opinies.length == 0 ? Container() : Container(
               height: 235,
               child: ListView.separated(
                 shrinkWrap: true,
@@ -182,8 +182,8 @@ class _HomeTabState extends State<HomeTab> {
                 ) : ShimmerNewsHorizontalItem()
               ),
             ),
-            HeaderForListWidget(title: "Webtorial", page: null),
-            Container(
+            !widget.isStarting && widget.webtorials.length == 0 ? Container() : HeaderForListWidget(title: "Webtorial", page: null),
+            !widget.isStarting && widget.webtorials.length == 0 ? Container() : Container(
               height: 235,
               child: ListView.separated(
                 shrinkWrap: true,
