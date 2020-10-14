@@ -55,9 +55,9 @@ class NewsVerticalItem extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
-                      Text(news.content.title,
-                      maxLines: 3,
-                      overflow: TextOverflow.ellipsis,
+                      Text(news?.content?.title ?? "",
+                        maxLines: 3,
+                        overflow: TextOverflow.ellipsis,
                         style: TextStyle(
                           fontWeight: FontWeight.w600,
                           fontSize: 16,
@@ -67,23 +67,23 @@ class NewsVerticalItem extends StatelessWidget {
                       Wrap(
                         crossAxisAlignment: WrapCrossAlignment.center,
                         children: <Widget>[
-                          Text(news.content.categoryName, 
+                          Text(news?.content?.categoryName ?? "", 
                             style: TextStyle(
                               fontSize: 10,
                               color: Colors.black38,
                             )
                           ),
                           AppGeneralWidget.dotIcon,
-                          Text(TimeAgo.format(news.content.createdAt, locale: 'id').toUpperCase(),
+                          news?.content?.createdAt != null ? Text(TimeAgo.format(news.content.createdAt, locale: 'id').toUpperCase(),
                             style: TextStyle(
                               fontSize: 10,
                               color: Colors.black38,
                             )
-                          ),
+                          ) : Container(),
                         ],
                       ),
                       SizedBox(height: 8),
-                      Text(news.content.authorUsername, 
+                      Text(news?.content?.authorUsername ?? "", 
                         overflow: TextOverflow.ellipsis,
                         maxLines: 1,
                         style: TextStyle(
@@ -138,22 +138,23 @@ class NewsHorizontalItem extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisSize: MainAxisSize.max,
           children: <Widget>[
-            AspectRatio(
-              aspectRatio: 340/195,
-              child: Container(
-                alignment: Alignment.topLeft,
-                decoration: BoxDecoration(
-                  color: Colors.grey[200],
-                  borderRadius: BorderRadius.circular(4.0),
-                  image: news.content.imageBig != "" ? DecorationImage(
-                    fit: BoxFit.cover,
-                    image: NetworkImage(news.content.imageBig),
-                  ) : null,
+            news?.content?.imageBig != null ? Container(
+              child: AspectRatio(
+                aspectRatio: 340/195,
+                child: Container(
+                  alignment: Alignment.topLeft,
+                  decoration: BoxDecoration(
+                    color: Colors.grey[200],
+                    borderRadius: BorderRadius.circular(4.0),
+                    image: news.content.imageBig != "" ? DecorationImage(
+                      fit: BoxFit.cover,
+                      image: NetworkImage(news.content.imageBig),
+                    ) : null,
+                  ),
                 ),
               ),
-            ), 
-            SizedBox(height: 8),
-            Text(news.content.title,
+            ) : Container(),
+            Text(news?.content?.title ?? "",
             maxLines: 2,
             overflow: TextOverflow.ellipsis,
               style: TextStyle(
@@ -165,19 +166,19 @@ class NewsHorizontalItem extends StatelessWidget {
             Wrap(
               crossAxisAlignment: WrapCrossAlignment.center,
               children: <Widget>[
-                Text(news.content.categoryName, 
+                Text(news?.content?.categoryName ?? "", 
                   style: TextStyle(
                     fontSize: 10,
                     color: Colors.black38,
                   )
                 ),
                 AppGeneralWidget.dotIcon,
-                Text(TimeAgo.format(news.content.createdAt, locale: 'id').toUpperCase(),
+                news?.content?.createdAt != null ? Text(TimeAgo.format(news.content.createdAt, locale: 'id').toUpperCase(),
                   style: TextStyle(
                     fontSize: 10,
                     color: Colors.black38,
                   )
-                ),
+                ) : Container(),
               ],
             )
           ]
