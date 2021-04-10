@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>890230143105-k8bk97a8cqkef82qtiglrkiabqhnenmn.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.890230143105-k8bk97a8cqkef82qtiglrkiabqhnenmn</string>
+	<key>API_KEY</key>
+	<string>AIzaSyB9apX9m8YWKmg5xKLOcUk5YJjdwYjNpZ0</string>
+	<key>GCM_SENDER_ID</key>
+	<string>890230143105</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>id.rmolkalbar</string>
+	<key>PROJECT_ID</key>
+	<string>rmolnetwork-3ee7e</string>
+	<key>STORAGE_BUCKET</key>
+	<string>rmolnetwork-3ee7e.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:890230143105:ios:8f3c63f246254dbf98b580</string>
+	<key>DATABASE_URL</key>
+	<string>https://rmolnetwork-3ee7e.firebaseio.com</string>
+</dict>
+</plist>
