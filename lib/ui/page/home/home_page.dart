@@ -68,7 +68,6 @@ class _HomePageState extends State<HomePage> {
   @override
   void initState() {
     setFCM();
-    setAd();
     initLocalNotification();
     scrollController.addListener(_onScroll);
     _layoutPage = [
