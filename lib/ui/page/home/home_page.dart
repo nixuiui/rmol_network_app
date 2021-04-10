@@ -213,7 +213,7 @@ class _HomePageState extends State<HomePage> {
                         children: [
                           SvgPicture.asset("assets/upgrade.svg", width: 130),
                           Text(
-                            "Aplikasi RMOL JATIM Telah Update di Playstore!!",
+                            "Aplikasi RMOL ACEH Telah Update di Playstore!!",
                             textAlign: TextAlign.center,
                           ),
                           Container(
@@ -317,9 +317,9 @@ class _HomePageState extends State<HomePage> {
     
     var subscribeNotif = prefs.getString("subscribeNotif");
     if(subscribeNotif == null || subscribeNotif == "subscribed")
-      _firebaseMessaging.subscribeToTopic("rmoljatim_public");
+      _firebaseMessaging.subscribeToTopic("rmolaceh_public");
     else 
-      _firebaseMessaging.unsubscribeFromTopic("rmoljatim_public");
+      _firebaseMessaging.unsubscribeFromTopic("rmolaceh_public");
     
     _firebaseMessaging.requestNotificationPermissions(
       const IosNotificationSettings(sound: true, badge: true, alert: true, provisional: true)

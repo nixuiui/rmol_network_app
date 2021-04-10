@@ -5,7 +5,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'package:dio/dio.dart';
 
 class MainApi {
-  String host = "https://rmoljatim.id/rest/api";
+  String host = "https://rmolaceh.id/rest/api";
   Dio dio = Dio();
   String get getHost => host;
 
