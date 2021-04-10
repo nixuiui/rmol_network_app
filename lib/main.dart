@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'RMOL JATIM',
+      title: 'RMOL SUMSEL',
       routes: {
         '/home': (context) => HomePage(),
       },
