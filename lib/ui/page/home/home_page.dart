@@ -260,16 +260,16 @@ class _HomePageState extends State<HomePage> {
           unselectedItemColor: Colors.grey[400],
           items: <BottomNavigationBarItem>[
             BottomNavigationBarItem(
-              icon: Icon(Feather.home), title: Text('', style: TextStyle(fontSize: 0))
+              icon: Icon(Feather.home), label: ''
             ),
             BottomNavigationBarItem(
-              icon: Icon(Feather.layers), title: Text('', style: TextStyle(fontSize: 0))
+              icon: Icon(Feather.layers), label: ''
             ),
             BottomNavigationBarItem(
-              icon: Icon(Feather.heart), title: Text('', style: TextStyle(fontSize: 0))
+              icon: Icon(Feather.heart), label: ''
             ),
             BottomNavigationBarItem(
-              icon: Icon(Feather.info), title: Text('', style: TextStyle(fontSize: 0))
+              icon: Icon(Feather.info), label: ''
             ),
           ],
           type: BottomNavigationBarType.fixed,
